@@ -1,10 +1,16 @@
 <resources>
-    <string name="app_name">WarframeCompanion</string>
-    <string name="title_activity_container">ContainerActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">Warframe Companion</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Strings related to ContainerView -->
+    <string name="view_container_title">Warframe Companion</string>
+    <string name="view_container_nav_item_home">Home</string>
+    <string name="view_container_nav_item_market">Market</string>
+    <string name="view_container_nav_item_items">Items</string>
+    <string name="view_container_nav_item_relics">Relics</string>
+
+    <!-- Strings related to HomeContainerView -->
+    <string name="view_home_container_nav_item_news">News</string>
+    <string name="view_home_container_nav_item_alerts">Alerts</string>
+    <string name="view_home_container_nav_item_sorties">Sorties</string>
+
 </resources>

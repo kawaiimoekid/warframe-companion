@@ -1,4 +1,4 @@
-package com.kawaiistudios.warframecompanion.activity.container
+package com.kawaiistudios.warframecompanion.container
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
