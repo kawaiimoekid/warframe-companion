@@ -13,4 +13,14 @@
     <string name="view_home_container_nav_item_alerts">Alerts</string>
     <string name="view_home_container_nav_item_sorties">Sorties</string>
 
+    <!-- Strings related to RelicsContainerView -->
+    <string name="view_relics_container_nav_item_lith">Lith</string>
+    <string name="view_relics_container_nav_item_meso">Meso</string>
+    <string name="view_relics_container_nav_item_neo">Neo</string>
+    <string name="view_relics_container_nav_item_axi">Axi</string>
+    <string name="view_relics_container_background_lith">#CD7F32</string>
+    <string name="view_relics_container_background_meso">#A39375</string>
+    <string name="view_relics_container_background_neo">#C0C0C0</string>
+    <string name="view_relics_container_background_axi">#D4AF37</string>
+
 </resources>

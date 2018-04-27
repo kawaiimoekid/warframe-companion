@@ -6,8 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.kawaiistudios.warframecompanion.R
 import com.kawaiistudios.warframecompanion.container.home.HomeContainerViewImpl
-import com.kawaiistudios.warframecompanion.container.market.MarketFragment
-import com.kawaiistudios.warframecompanion.container.home.news.NewsViewImpl
+import com.kawaiistudios.warframecompanion.container.relics.RelicsContainerViewImpl
 import kotlinx.android.synthetic.main.activity_container.*
 
 class ContainerViewImpl : AppCompatActivity(), IContainerView {
@@ -21,15 +20,15 @@ class ContainerViewImpl : AppCompatActivity(), IContainerView {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_market -> {
-                mPresenter.openFragment(supportFragmentManager, fragmentContainer, MarketFragment.newInstance())
+                mPresenter.openFragment(supportFragmentManager, fragmentContainer, RelicsContainerViewImpl.newInstance())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_items -> {
-                mPresenter.openFragment(supportFragmentManager, fragmentContainer, MarketFragment.newInstance())
+                mPresenter.openFragment(supportFragmentManager, fragmentContainer, RelicsContainerViewImpl.newInstance())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_relics -> {
-                mPresenter.openFragment(supportFragmentManager, fragmentContainer, MarketFragment.newInstance())
+                mPresenter.openFragment(supportFragmentManager, fragmentContainer, RelicsContainerViewImpl.newInstance())
                 return@OnNavigationItemSelectedListener true
             }
         }
