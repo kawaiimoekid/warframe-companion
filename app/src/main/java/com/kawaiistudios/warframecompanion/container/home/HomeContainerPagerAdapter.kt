@@ -22,7 +22,7 @@ class HomeContainerPagerAdapter(
         return when (position) {
             0 -> mActivity.getString(R.string.view_home_container_nav_item_news)
             1 -> mActivity.getString(R.string.view_home_container_nav_item_alerts)
-            2 -> mActivity.getString(R.string.view_home_container_nav_item_sorties)
+            2 -> mActivity.getString(R.string.view_home_container_nav_item_sortie)
             else -> null
         }
     }

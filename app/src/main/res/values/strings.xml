@@ -11,7 +11,7 @@
     <!-- Strings related to HomeContainerView -->
     <string name="view_home_container_nav_item_news">News</string>
     <string name="view_home_container_nav_item_alerts">Alerts</string>
-    <string name="view_home_container_nav_item_sorties">Sorties</string>
+    <string name="view_home_container_nav_item_sortie">Sortie</string>
 
     <!-- Strings related to RelicsContainerView -->
     <string name="view_relics_container_nav_item_lith">Lith</string>

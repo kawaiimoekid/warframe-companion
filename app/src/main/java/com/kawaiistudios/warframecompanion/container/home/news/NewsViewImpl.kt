@@ -9,6 +9,7 @@ import android.view.ViewGroup
 
 import com.kawaiistudios.warframecompanion.R
 import com.kawaiistudios.warframecompanion.container.IContainerView
+import com.kawaiistudios.warframecompanion.container.util.worldstate.News
 import kotlinx.android.synthetic.main.fragment_news.*
 
 class NewsViewImpl : Fragment(), INewsView {
@@ -30,8 +31,8 @@ class NewsViewImpl : Fragment(), INewsView {
         mPresenter.getNews()
     }
 
-    override fun addEvent(event: News.Event) {
-        mAdapter.addItem(event)
+    override fun addNews(news: News) {
+        mAdapter.addItem(news)
         if (mAdapter.itemCount > 0)
             pbLoading.visibility = View.GONE
     }

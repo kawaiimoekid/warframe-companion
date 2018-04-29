@@ -27,6 +27,16 @@ class HomeContainerViewImpl : Fragment(), IHomeContainerView {
         tabLayout.setupWithViewPager(viewPager)
     }
 
+    override fun onResume() {
+        super.onResume()
+        mPresenter.onEnter()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mPresenter.onExit()
+    }
+
     companion object {
         fun newInstance() = HomeContainerViewImpl()
     }

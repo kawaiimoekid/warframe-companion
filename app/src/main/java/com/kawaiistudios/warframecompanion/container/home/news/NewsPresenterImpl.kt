@@ -1,42 +1,32 @@
 package com.kawaiistudios.warframecompanion.container.home.news
 
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
+import com.kawaiistudios.warframecompanion.container.util.Platform
+import com.kawaiistudios.warframecompanion.container.util.worldstate.News
+import com.kawaiistudios.warframecompanion.container.util.worldstate.NewsDownloaded
 
 class NewsPresenterImpl(
-        private val mNewsView: INewsView
+        private val mView: INewsView
 ) {
 
-    private val mRetrofit by lazy { Retrofit.Builder()
-            .baseUrl("http://content.warframe.com/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+    private val mModel: INewsModel by lazy { NewsModelImpl() }
+    private val mCallback: NewsDownloaded by lazy {
+        object : NewsDownloaded {
+            override fun onSuccess(news: List<News>?) {
+                news?.sortedByDescending { it.date }?.forEach { mView.addNews(it) }
+            }
+
+            override fun onFailure(t: Throwable?) {
+                t?.printStackTrace()
+            }
+        }
     }
-    private val mApi by lazy { mRetrofit.create(IApi::class.java) }
 
     fun getNews() {
-        val news = mApi.getNews()
-        news.enqueue(object : Callback<News> {
-            override fun onFailure(call: Call<News>?, t: Throwable?) {
-                mNewsView.showToast("We couldn't load news list")
-            }
-
-            override fun onResponse(call: Call<News>?, response: Response<News>?) {
-                response?.body()?.events?.sortedByDescending { it.date.date.longDate }?.forEach { ev ->
-                    mNewsView.addEvent(ev)
-                }
-            }
-        })
-    }
-
-    private interface IApi {
-
-        @GET("dynamic/worldState.php")
-        fun getNews(): Call<News>
-
+        try {
+            val news = mModel.getNews(Platform.Pc)
+            news.sortedByDescending { it.date }.forEach { mView.addNews(it) }
+        } catch (e: Exception) {
+            mModel.setOnNewsDownloadedCallback(mCallback)
+        }
     }
 }
