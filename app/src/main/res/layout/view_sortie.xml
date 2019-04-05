@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.sortie.SortieView">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/pbLoading">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgFaction"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:layout_margin="16dp"
+                android:tint="@color/textPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/ic_grineer"
+                />
+
+            <TextView
+                android:id="@+id/txtFaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="@id/imgFaction"
+                app:layout_constraintEnd_toEndOf="@id/imgFaction"
+                app:layout_constraintTop_toBottomOf="@id/imgFaction"
+                tools:text="Grineer"
+                />
+
+            <TextView
+                android:id="@+id/txtTimeLeft"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/imgFaction"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imgFaction"
+                app:layout_constraintBottom_toTopOf="@id/txtBoss"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="23h 15m 42s"
+                />
+
+            <TextView
+                android:id="@+id/txtBoss"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/imgFaction"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtTimeLeft"
+                app:layout_constraintBottom_toBottomOf="@id/imgFaction"
+                tools:text="Kela de Thaym"
+                />
+
+            <TextView
+                android:id="@+id/txtMissionsHeader"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/view_sortie_txt_missions_header"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtFaction"
+                />
+
+            <TextView
+                android:id="@+id/txtMissionType1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/textPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnMissionInfo1"
+                app:layout_constraintTop_toBottomOf="@id/txtMissionsHeader"
+                tools:text="Mission type 1"
+                />
+
+            <TextView
+                android:id="@+id/txtMissionNode1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/textPrimary"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnMissionInfo1"
+                app:layout_constraintTop_toBottomOf="@id/txtMissionType1"
+                tools:text="Mission (Node 1)"
+                />
+
+            <TextView
+                android:id="@+id/txtMissionModifier1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/textPrimary"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnMissionInfo1"
+                app:layout_constraintTop_toBottomOf="@id/txtMissionNode1"
+                tools:text="Mission modifier name"
+                />
+
+            <ImageView
+                android:id="@+id/btnMissionInfo1"
+                style="@style/imageButton"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_margin="16dp"
+                app:srcCompat="@drawable/ic_info_black_24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtMissionType1"
+                app:layout_constraintBottom_toBottomOf="@id/txtMissionModifier1"
+                />
+
+            <View
+                android:id="@+id/separatorMissions1"
+                style="@style/separatorVertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtMissionModifier1"
+                />
+
+            <TextView
+                android:id="@+id/txtMissionType2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/textPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnMissionInfo1"
+                app:layout_constraintTop_toBottomOf="@id/separatorMissions1"
+                tools:text="Mission type 2"
+                />
+
+            <TextView
+                android:id="@+id/txtMissionNode2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/textPrimary"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnMissionInfo2"
+                app:layout_constraintTop_toBottomOf="@id/txtMissionType2"
+                tools:text="Mission (Node 2)"
+                />
+
+            <TextView
+                android:id="@+id/txtMissionModifier2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/textPrimary"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnMissionInfo2"
+                app:layout_constraintTop_toBottomOf="@id/txtMissionNode2"
+                tools:text="Mission modifier name"
+                />
+
+            <ImageView
+                android:id="@+id/btnMissionInfo2"
+                style="@style/imageButton"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_margin="16dp"
+                app:srcCompat="@drawable/ic_info_black_24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtMissionType2"
+                app:layout_constraintBottom_toBottomOf="@id/txtMissionModifier2"
+                />
+
+            <View
+                android:id="@+id/separatorMissions2"
+                style="@style/separatorVertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtMissionModifier2"
+                />
+
+            <TextView
+                android:id="@+id/txtMissionType3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/textPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnMissionInfo2"
+                app:layout_constraintTop_toBottomOf="@id/separatorMissions2"
+                tools:text="Mission type 3"
+                />
+
+            <TextView
+                android:id="@+id/txtMissionNode3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/textPrimary"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnMissionInfo3"
+                app:layout_constraintTop_toBottomOf="@id/txtMissionType3"
+                tools:text="Mission (Node 3)"
+                />
+
+            <TextView
+                android:id="@+id/txtMissionModifier3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                android:textColor="@color/textPrimary"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnMissionInfo3"
+                app:layout_constraintTop_toBottomOf="@id/txtMissionNode3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0"
+                tools:text="Mission modifier name"
+                />
+
+            <ImageView
+                android:id="@+id/btnMissionInfo3"
+                style="@style/imageButton"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_margin="16dp"
+                app:srcCompat="@drawable/ic_info_black_24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtMissionType3"
+                app:layout_constraintBottom_toBottomOf="@id/txtMissionModifier3"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/pbLoading"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/txtFailure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/view_news_txt_failure"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnReload"
+        app:layout_constraintVertical_chainStyle="packed"
+        />
+
+    <Button
+        android:id="@+id/btnReload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/view_news_btn_reload"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtFailure"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

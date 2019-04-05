@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="separatorColor" format="reference" />
+    <attr name="imageButtonColor" format="reference" />
+
+</resources>
