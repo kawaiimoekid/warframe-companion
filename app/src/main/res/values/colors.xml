@@ -7,4 +7,9 @@
     <color name="backgroundLight">#555555</color>
     <color name="background">#444444</color>
     <color name="backgroundDark">#333333</color>
+
+    <color name="relic_lith">#CD7F32</color>
+    <color name="relic_meso">#A39375</color>
+    <color name="relic_neo">#C0C0C0</color>
+    <color name="relic_axi">#D4AF37</color>
 </resources>
