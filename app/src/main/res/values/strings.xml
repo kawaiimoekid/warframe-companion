@@ -1,16 +1,30 @@
 <resources>
     <string name="app_name">Warframe Companion</string>
+    <string name="view">View</string>
+    <string name="close">Close</string>
 
     <!-- Strings related to ContainerView -->
     <string name="view_container_title">Warframe Companion</string>
     <string name="view_container_nav_item_home">Home</string>
     <string name="view_container_nav_item_market">Market</string>
-    <string name="view_container_nav_item_items">Items</string>
+    <string name="view_container_nav_item_codex">Items</string>
     <string name="view_container_nav_item_relics">Relics</string>
 
-    <!-- Strings related to HomeContainerView -->
-    <string name="view_home_container_nav_item_news">News</string>
-    <string name="view_home_container_nav_item_alerts">Alerts</string>
-    <string name="view_home_container_nav_item_sorties">Sorties</string>
+    <!-- Strings related to HomeView -->
+    <string name="view_home_tab_news">News</string>
+    <string name="view_home_tab_fissures">Fissures</string>
+    <string name="view_home_tab_sortie">Sortie</string>
+
+    <!-- Strings related to NewsView -->
+    <string name="view_news_txt_failure">Failed to load news.</string>
+    <string name="view_news_dialog_view_post_content">Do you want to view the forum post?</string>
+    <string name="view_news_btn_reload">Reload</string>
+
+    <!-- Strings related to FissuresView -->
+    <string name="view_fissures_adapter_txt_time_expired">Expired!</string>
+
+    <!-- Strings related to SortieView -->
+    <string name="view_sortie_txt_time_expired">Sortie expired!</string>
+    <string name="view_sortie_txt_missions_header">Missions</string>
 
 </resources>
