@@ -37,4 +37,6 @@ class NewsRepository @Inject constructor(
         })
     }
 
+    fun getNewsSingle() = api.getNewsSingle()
+
 }
