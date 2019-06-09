@@ -4,6 +4,9 @@
     <string name="close">Close</string>
 
     <!-- Strings related to ContainerView -->
+    <string name="view_dashboard_txt_show_all_news">Show all</string>
+
+    <!-- Strings related to ContainerView -->
     <string name="view_container_title">Warframe Companion</string>
     <string name="view_container_nav_item_home">Home</string>
     <string name="view_container_nav_item_market">Market</string>

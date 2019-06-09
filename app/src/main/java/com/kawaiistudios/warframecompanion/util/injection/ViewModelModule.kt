@@ -2,6 +2,7 @@ package com.kawaiistudios.warframecompanion.util.injection
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.kawaiistudios.warframecompanion.presentation.dashboard.DashboardViewModel
 import com.kawaiistudios.warframecompanion.presentation.fissures.FissuresViewModel
 import com.kawaiistudios.warframecompanion.presentation.home.HomeViewModel
 import com.kawaiistudios.warframecompanion.presentation.news.NewsViewModel
@@ -13,6 +14,11 @@ import dagger.multibindings.IntoMap
 @Suppress("unused")
 @Module
 abstract class ViewModelModule {
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DashboardViewModel::class)
+    abstract fun bindDashboard(vm: DashboardViewModel): ViewModel
 
     @Binds
     @IntoMap

@@ -1,5 +1,6 @@
 package com.kawaiistudios.warframecompanion.util.injection
 
+import com.kawaiistudios.warframecompanion.presentation.dashboard.DashboardView
 import com.kawaiistudios.warframecompanion.presentation.fissures.FissuresView
 import com.kawaiistudios.warframecompanion.presentation.home.HomeView
 import com.kawaiistudios.warframecompanion.presentation.news.NewsView
@@ -10,6 +11,9 @@ import dagger.android.ContributesAndroidInjector
 @Suppress("unused")
 @Module
 abstract class FragmentBuildersModule {
+
+    @ContributesAndroidInjector
+    abstract fun contributeDashboardView(): DashboardView
 
     @ContributesAndroidInjector
     abstract fun contributeHomeView(): HomeView
