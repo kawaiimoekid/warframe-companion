@@ -2,9 +2,16 @@
     <string name="app_name">Warframe Companion</string>
     <string name="view">View</string>
     <string name="close">Close</string>
+    <string name="show_all">Show all</string>
+    <string name="show_more">Show more</string>
 
     <!-- Strings related to ContainerView -->
-    <string name="view_dashboard_txt_show_all_news">Show all</string>
+    <string name="view_dashboard_txt_news_header">News</string>
+    <string name="view_dashboard_txt_fissures_header">Fissures</string>
+    <string name="view_dashboard_txt_fissures_lith">Lith: %d</string>
+    <string name="view_dashboard_txt_fissures_meso">Meso: %d</string>
+    <string name="view_dashboard_txt_fissures_neo">Neo: %d</string>
+    <string name="view_dashboard_txt_fissures_axi">Axi: %d</string>
 
     <!-- Strings related to ContainerView -->
     <string name="view_container_title">Warframe Companion</string>
