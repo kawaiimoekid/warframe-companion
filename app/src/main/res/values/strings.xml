@@ -33,6 +33,7 @@
     <string name="view_home_tab_sortie">Sortie</string>
 
     <!-- Strings related to NewsView -->
+    <string name="view_news_title">News</string>
     <string name="view_news_txt_failure">Failed to load news.</string>
     <string name="view_news_dialog_view_post_content">Do you want to view the forum post?</string>
     <string name="view_news_btn_reload">Reload</string>

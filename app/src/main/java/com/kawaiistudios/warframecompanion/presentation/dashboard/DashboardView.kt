@@ -11,6 +11,7 @@ import com.kawaiistudios.warframecompanion.presentation.BaseView
 import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.fissures.DashboardFissuresWidgetView
 import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.news.DashboardNewsWidgetView
 import com.kawaiistudios.warframecompanion.di.Injectable
+import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.invasions.DashboardInvasionsWidgetView
 import kotlinx.android.synthetic.main.view_dashboard.*
 import javax.inject.Inject
 
@@ -33,6 +34,7 @@ class DashboardView : BaseView(), Injectable {
             childFragmentManager.beginTransaction()
                     .add(layoutWidgetContainer.id, DashboardNewsWidgetView(), "NewsWidget")
                     .add(layoutWidgetContainer.id, DashboardFissuresWidgetView(), "FissuresWidget")
+                    .add(layoutWidgetContainer.id, DashboardInvasionsWidgetView(), "InvasionsWidget")
                     .commit()
         }
     }

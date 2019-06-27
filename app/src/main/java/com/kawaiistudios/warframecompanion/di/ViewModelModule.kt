@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.kawaiistudios.warframecompanion.presentation.dashboard.DashboardViewModel
 import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.fissures.DashboardFissuresWidgetViewModel
+import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.invasions.DashboardInvasionsWidgetViewModel
 import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.news.DashboardNewsWidgetViewModel
 import com.kawaiistudios.warframecompanion.presentation.fissures.FissuresViewModel
 import com.kawaiistudios.warframecompanion.presentation.news.NewsViewModel
@@ -30,6 +31,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(DashboardFissuresWidgetViewModel::class)
     abstract fun bindDashboardFissuresWidget(vm: DashboardFissuresWidgetViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DashboardInvasionsWidgetViewModel::class)
+    abstract fun bindDashboardInvasionsWidget(vm: DashboardInvasionsWidgetViewModel): ViewModel
 
     @Binds
     @IntoMap
