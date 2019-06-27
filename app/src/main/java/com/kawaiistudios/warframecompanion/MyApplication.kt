@@ -7,7 +7,7 @@ import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import dagger.android.HasBroadcastReceiverInjector
-import pl.itcenter.sotrep.util.injection.AppInjector
+import com.kawaiistudios.warframecompanion.di.AppInjector
 import javax.inject.Inject
 
 class MyApplication : Application(), HasActivityInjector, HasBroadcastReceiverInjector {

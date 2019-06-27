@@ -1,6 +1,6 @@
-package com.kawaiistudios.warframecompanion.presentation.dashboard
+package com.kawaiistudios.warframecompanion.presentation.dashboard.widget.news
 
-data class DashboardNewsModel(
+data class DashboardNewsWidgetModel(
         val id: String,
         val message: String,
         val forumLink: String,

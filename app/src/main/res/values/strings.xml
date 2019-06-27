@@ -5,17 +5,24 @@
     <string name="show_all">Show all</string>
     <string name="show_more">Show more</string>
 
-    <!-- Strings related to ContainerView -->
-    <string name="view_dashboard_txt_news_header">News</string>
-    <string name="view_dashboard_txt_fissures_header">Fissures</string>
-    <string name="view_dashboard_txt_fissures_lith">Lith: %d</string>
-    <string name="view_dashboard_txt_fissures_meso">Meso: %d</string>
-    <string name="view_dashboard_txt_fissures_neo">Neo: %d</string>
-    <string name="view_dashboard_txt_fissures_axi">Axi: %d</string>
+    <!-- Strings related to DashboardNewsWidgetView -->
+    <string name="view_dashboard_news_widget_txt_show_all">Show all news</string>
+
+    <!-- Strings related to DashboardFissuresWidgetView -->
+    <string name="view_dashboard_fissures_widget_txt_title">Void fissures</string>
+    <string name="view_dashboard_fissures_widget_txt_lith">Lith: %d</string>
+    <string name="view_dashboard_fissures_widget_txt_meso">Meso: %d</string>
+    <string name="view_dashboard_fissures_widget_txt_neo">Neo: %d</string>
+    <string name="view_dashboard_fissures_widget_txt_axi">Axi: %d</string>
+    <string name="view_dashboard_fissures_widget_txt_show_all">Show all fissures</string>
+
+    <!-- Strings related to DashboardInvasionsWidgetView -->
+    <string name="view_dashboard_invasions_widget_txt_title">Invasion rewards</string>
+    <string name="view_dashboard_invasions_widget_txt_show_all">Show all invasions</string>
 
     <!-- Strings related to ContainerView -->
     <string name="view_container_title">Warframe Companion</string>
-    <string name="view_container_nav_item_home">Home</string>
+    <string name="view_container_nav_item_dashboard">Dashboard</string>
     <string name="view_container_nav_item_market">Market</string>
     <string name="view_container_nav_item_codex">Items</string>
     <string name="view_container_nav_item_relics">Relics</string>

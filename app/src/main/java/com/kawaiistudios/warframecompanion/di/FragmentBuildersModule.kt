@@ -1,8 +1,9 @@
-package com.kawaiistudios.warframecompanion.util.injection
+package com.kawaiistudios.warframecompanion.di
 
 import com.kawaiistudios.warframecompanion.presentation.dashboard.DashboardView
+import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.fissures.DashboardFissuresWidgetView
+import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.news.DashboardNewsWidgetView
 import com.kawaiistudios.warframecompanion.presentation.fissures.FissuresView
-import com.kawaiistudios.warframecompanion.presentation.home.HomeView
 import com.kawaiistudios.warframecompanion.presentation.news.NewsView
 import com.kawaiistudios.warframecompanion.presentation.sortie.SortieView
 import dagger.Module
@@ -16,7 +17,10 @@ abstract class FragmentBuildersModule {
     abstract fun contributeDashboardView(): DashboardView
 
     @ContributesAndroidInjector
-    abstract fun contributeHomeView(): HomeView
+    abstract fun contributeDashboardNewsWidgetView(): DashboardNewsWidgetView
+
+    @ContributesAndroidInjector
+    abstract fun contributeDashboardFissuresWidgetView(): DashboardFissuresWidgetView
 
     @ContributesAndroidInjector
     abstract fun contributeNewsView(): NewsView

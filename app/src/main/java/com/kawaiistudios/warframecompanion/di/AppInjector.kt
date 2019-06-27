@@ -1,4 +1,4 @@
-package pl.itcenter.sotrep.util.injection
+package com.kawaiistudios.warframecompanion.di
 
 import android.app.Activity
 import android.app.Application
@@ -7,8 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import com.kawaiistudios.warframecompanion.MyApplication
-import com.kawaiistudios.warframecompanion.util.injection.DaggerAppComponent
-import com.kawaiistudios.warframecompanion.util.injection.Injectable
 import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.HasSupportFragmentInjector

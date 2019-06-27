@@ -1,4 +1,4 @@
-package com.kawaiistudios.warframecompanion.util.injection
+package com.kawaiistudios.warframecompanion.di
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

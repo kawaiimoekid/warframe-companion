@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.afollestad.materialdialogs.MaterialDialog
 
 import com.kawaiistudios.warframecompanion.R
-import com.kawaiistudios.warframecompanion.util.injection.Injectable
+import com.kawaiistudios.warframecompanion.di.Injectable
 import kotlinx.android.synthetic.main.view_sortie.*
 import org.joda.time.Duration
 import org.joda.time.format.PeriodFormatterBuilder

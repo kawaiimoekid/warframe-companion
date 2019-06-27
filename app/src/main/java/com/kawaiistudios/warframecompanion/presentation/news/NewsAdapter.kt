@@ -10,7 +10,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.adapter_news.view.*
 
 class NewsAdapter(
-        val callback: NewsClickedListener
+        val callback: (NewsModel) -> Unit
 ) : GreatAdapter<NewsModel>() {
 
     private val picasso = Picasso.get()
@@ -22,7 +22,7 @@ class NewsAdapter(
         : GreatViewHolder<NewsModel>(view) {
 
         override fun bind(item: NewsModel) {
-            itemView.cvContainer.setOnClickListener { callback.onClicked(item) }
+            itemView.cvContainer.setOnClickListener { callback(item) }
             itemView.txtTitle.text = item.message
             picasso.load(item.imageLink)
                     .resize(600, 600)

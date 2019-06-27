@@ -1,10 +1,11 @@
-package com.kawaiistudios.warframecompanion.util.injection
+package com.kawaiistudios.warframecompanion.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.kawaiistudios.warframecompanion.presentation.dashboard.DashboardViewModel
+import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.fissures.DashboardFissuresWidgetViewModel
+import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.news.DashboardNewsWidgetViewModel
 import com.kawaiistudios.warframecompanion.presentation.fissures.FissuresViewModel
-import com.kawaiistudios.warframecompanion.presentation.home.HomeViewModel
 import com.kawaiistudios.warframecompanion.presentation.news.NewsViewModel
 import com.kawaiistudios.warframecompanion.presentation.sortie.SortieViewModel
 import dagger.Binds
@@ -22,8 +23,13 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(HomeViewModel::class)
-    abstract fun bindHome(vm: HomeViewModel): ViewModel
+    @ViewModelKey(DashboardNewsWidgetViewModel::class)
+    abstract fun bindDashboardNewsWidget(vm: DashboardNewsWidgetViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DashboardFissuresWidgetViewModel::class)
+    abstract fun bindDashboardFissuresWidget(vm: DashboardFissuresWidgetViewModel): ViewModel
 
     @Binds
     @IntoMap

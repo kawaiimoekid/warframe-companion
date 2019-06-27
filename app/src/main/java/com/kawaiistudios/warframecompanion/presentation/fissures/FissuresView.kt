@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 
 import com.kawaiistudios.warframecompanion.R
-import com.kawaiistudios.warframecompanion.util.injection.Injectable
+import com.kawaiistudios.warframecompanion.di.Injectable
 import kotlinx.android.synthetic.main.view_fissures.*
 import javax.inject.Inject
 
