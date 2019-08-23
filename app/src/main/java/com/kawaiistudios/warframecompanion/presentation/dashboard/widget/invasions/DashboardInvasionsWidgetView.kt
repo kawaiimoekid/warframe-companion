@@ -42,7 +42,7 @@ class DashboardInvasionsWidgetView : BaseView(), Injectable {
 
         disposable.add(viewModel.rewards.subscribe(adapter::update, ::showSomeError))
 
-        btnShowAllInvasions.setOnClickListener {  }
+        btnShowAllInvasions.setOnClickListener { findNavController().navigate(R.id.dashboardToInvasions) }
     }
 
     private fun showSomeError(throwable: Throwable) {

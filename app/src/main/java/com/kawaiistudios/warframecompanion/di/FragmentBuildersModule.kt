@@ -5,6 +5,7 @@ import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.fissure
 import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.invasions.DashboardInvasionsWidgetView
 import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.news.DashboardNewsWidgetView
 import com.kawaiistudios.warframecompanion.presentation.fissures.FissuresView
+import com.kawaiistudios.warframecompanion.presentation.invasions.InvasionsView
 import com.kawaiistudios.warframecompanion.presentation.news.NewsView
 import com.kawaiistudios.warframecompanion.presentation.sortie.SortieView
 import dagger.Module
@@ -31,6 +32,9 @@ abstract class FragmentBuildersModule {
 
     @ContributesAndroidInjector
     abstract fun contributeFissuresView(): FissuresView
+
+    @ContributesAndroidInjector
+    abstract fun contributeInvasionsView(): InvasionsView
 
     @ContributesAndroidInjector
     abstract fun contributeSortieView(): SortieView

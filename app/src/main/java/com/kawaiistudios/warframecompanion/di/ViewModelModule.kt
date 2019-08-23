@@ -7,6 +7,7 @@ import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.fissure
 import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.invasions.DashboardInvasionsWidgetViewModel
 import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.news.DashboardNewsWidgetViewModel
 import com.kawaiistudios.warframecompanion.presentation.fissures.FissuresViewModel
+import com.kawaiistudios.warframecompanion.presentation.invasions.InvasionsViewModel
 import com.kawaiistudios.warframecompanion.presentation.news.NewsViewModel
 import com.kawaiistudios.warframecompanion.presentation.sortie.SortieViewModel
 import dagger.Binds
@@ -46,6 +47,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(FissuresViewModel::class)
     abstract fun bindFissures(vm: FissuresViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(InvasionsViewModel::class)
+    abstract fun bindInvasions(vm: InvasionsViewModel): ViewModel
 
     @Binds
     @IntoMap
