@@ -13,8 +13,9 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.afollestad.materialdialogs.MaterialDialog
 import com.kawaiistudios.warframecompanion.R
-import com.kawaiistudios.warframecompanion.presentation.BaseView
 import com.kawaiistudios.warframecompanion.di.Injectable
+import com.kawaiistudios.warframecompanion.presentation.BaseView
+import com.kawaiistudios.warframecompanion.presentation.dashboard.DashboardViewDirections
 import com.squareup.picasso.Picasso
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.view_dashboard_news_widget.*
@@ -39,10 +40,9 @@ class DashboardNewsWidgetView : BaseView(), Injectable {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this, viewModelFactory)
                 .get(DashboardNewsWidgetViewModel::class.java)
-
         disposable.add(viewModel.news.subscribe(::bind, ::showSomeError))
 
-        btnShowAllNews.setOnClickListener { findNavController().navigate(R.id.dashboardToNews) }
+        btnShowAllNews.setOnClickListener { navigateToNewsList() }
     }
 
     private fun bind(news: DashboardNewsWidgetModel) {
@@ -53,6 +53,11 @@ class DashboardNewsWidgetView : BaseView(), Injectable {
                 .resize(600, 600)
                 .centerInside()
                 .into(imgNews)
+    }
+
+    private fun navigateToNewsList() {
+        val directions = DashboardViewDirections.actionDashboardViewToNewsView()
+        findNavController().navigate(directions)
     }
 
     private fun showForumDialog(link: String) {

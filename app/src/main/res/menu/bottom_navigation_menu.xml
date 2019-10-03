@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/dashboard"
+        android:id="@+id/dashboardView"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/view_container_nav_item_dashboard" />
 

@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.kawaiistudios.warframecompanion.R
 import com.kawaiistudios.warframecompanion.di.Injectable
 import com.kawaiistudios.warframecompanion.presentation.BaseView
+import com.kawaiistudios.warframecompanion.presentation.dashboard.DashboardViewDirections
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.view_dashboard_invasions_widget.*
 import javax.inject.Inject
@@ -37,12 +38,16 @@ class DashboardInvasionsWidgetView : BaseView(), Injectable {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this, viewModelFactory)
                 .get(DashboardInvasionsWidgetViewModel::class.java)
+        disposable.add(viewModel.rewards.subscribe(adapter::update, ::showSomeError))
 
         rvRewards.adapter = adapter
 
-        disposable.add(viewModel.rewards.subscribe(adapter::update, ::showSomeError))
+        btnShowAllInvasions.setOnClickListener { navigateToInvasionsList() }
+    }
 
-        btnShowAllInvasions.setOnClickListener { findNavController().navigate(R.id.dashboardToInvasions) }
+    private fun navigateToInvasionsList() {
+        val directions = DashboardViewDirections.actionDashboardViewToInvasionsView()
+        findNavController().navigate(directions)
     }
 
     private fun showSomeError(throwable: Throwable) {

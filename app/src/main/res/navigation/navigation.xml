@@ -1,49 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation
+    android:id="@+id/navigation"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation"
-    app:startDestination="@+id/dashboard">
+    app:startDestination="@id/dashboardView">
 
     <fragment
-        android:id="@+id/dashboard"
+        android:id="@+id/dashboardView"
         android:name="com.kawaiistudios.warframecompanion.presentation.dashboard.DashboardView"
-        android:label="@string/app_name"
-        tools:layout="@layout/view_dashboard">
+        android:label="view_dashboard"
+        tools:layout="@layout/view_dashboard" >
         <action
-            android:id="@+id/dashboardToNews"
-            app:destination="@+id/news"
-            />
+            android:id="@+id/action_dashboardView_to_newsView"
+            app:destination="@id/newsView" />
         <action
-            android:id="@+id/dashboardToFissures"
-            app:destination="@+id/fissures"
-            />
+            android:id="@+id/action_dashboardView_to_invasionsView"
+            app:destination="@id/invasionsView" />
         <action
-            android:id="@+id/dashboardToInvasions"
-            app:destination="@+id/invasions"
-            />
+            android:id="@+id/action_dashboardView_to_fissuresView"
+            app:destination="@id/fissuresView" />
+        <action
+            android:id="@+id/action_dashboardView_to_sortieView"
+            app:destination="@id/sortieView" />
     </fragment>
-
     <fragment
-        android:id="@+id/news"
+        android:id="@+id/newsView"
         android:name="com.kawaiistudios.warframecompanion.presentation.news.NewsView"
-        android:label="@string/app_name"
-        tools:layout="@layout/view_news"
-        />
-
+        android:label="view_news"
+        tools:layout="@layout/view_news" />
     <fragment
-        android:id="@+id/fissures"
+        android:id="@+id/fissuresView"
         android:name="com.kawaiistudios.warframecompanion.presentation.fissures.FissuresView"
-        android:label="@string/app_name"
-        tools:layout="@layout/view_fissures"
-        />
-
+        android:label="view_fissures"
+        tools:layout="@layout/view_fissures" />
     <fragment
-        android:id="@+id/invasions"
+        android:id="@+id/invasionsView"
         android:name="com.kawaiistudios.warframecompanion.presentation.invasions.InvasionsView"
-        android:label="@string/app_name"
-        tools:layout="@layout/view_invasions"
-        />
-
+        android:label="view_invasions"
+        tools:layout="@layout/view_invasions" />
+    <fragment
+        android:id="@+id/sortieView"
+        android:name="com.kawaiistudios.warframecompanion.presentation.sortie.SortieView"
+        android:label="view_sortie"
+        tools:layout="@layout/view_sortie" />
 </navigation>

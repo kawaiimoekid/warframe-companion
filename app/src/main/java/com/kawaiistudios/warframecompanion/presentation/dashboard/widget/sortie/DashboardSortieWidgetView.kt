@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.kawaiistudios.warframecompanion.R
 import com.kawaiistudios.warframecompanion.di.Injectable
 import com.kawaiistudios.warframecompanion.presentation.BaseView
+import com.kawaiistudios.warframecompanion.presentation.dashboard.DashboardViewDirections
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.view_dashboard_sortie_widget.*
 import javax.inject.Inject
@@ -37,6 +39,8 @@ class DashboardSortieWidgetView : BaseView(), Injectable {
                 viewModel.sortie.subscribe(::bind, ::showSomeError),
                 viewModel.timeLeft.subscribe { txtTimeLeft.text = it }
         )
+
+        btnShowDetails.setOnClickListener { navigateToSortieDetails() }
     }
 
     private fun bind(sortie: DashboardSortieWidgetModel) {
@@ -51,6 +55,11 @@ class DashboardSortieWidgetView : BaseView(), Injectable {
 
         txtMissionType3.text = sortie.missionType3
         txtMissionModifier3.text = sortie.missionModifier3
+    }
+
+    private fun navigateToSortieDetails() {
+        val directions = DashboardViewDirections.actionDashboardViewToSortieView()
+        findNavController().navigate(directions)
     }
 
     private fun showSomeError(throwable: Throwable) {

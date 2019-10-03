@@ -10,8 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.kawaiistudios.warframecompanion.R
-import com.kawaiistudios.warframecompanion.presentation.BaseView
 import com.kawaiistudios.warframecompanion.di.Injectable
+import com.kawaiistudios.warframecompanion.presentation.BaseView
+import com.kawaiistudios.warframecompanion.presentation.dashboard.DashboardViewDirections
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.view_dashboard_fissures_widget.*
 import javax.inject.Inject
@@ -35,10 +36,9 @@ class DashboardFissuresWidgetView : BaseView(), Injectable {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this, viewModelFactory)
                 .get(DashboardFissuresWidgetViewModel::class.java)
-
         disposable.add(viewModel.fissures.subscribe(::bind, ::showSomeError))
 
-        btnShowAllFissures.setOnClickListener { findNavController().navigate(R.id.dashboardToFissures) }
+        btnShowAllFissures.setOnClickListener { navigateToFissuresList() }
     }
 
     private fun bind(fissures: DashboardFissuresWidgetModel) {
@@ -46,6 +46,11 @@ class DashboardFissuresWidgetView : BaseView(), Injectable {
         txtMeso.text = getString(R.string.view_dashboard_fissures_widget_txt_meso, fissures.mesoCount)
         txtNeo.text = getString(R.string.view_dashboard_fissures_widget_txt_neo, fissures.neoCount)
         txtAxi.text = getString(R.string.view_dashboard_fissures_widget_txt_axi, fissures.axiCount)
+    }
+
+    private fun navigateToFissuresList() {
+        val directions = DashboardViewDirections.actionDashboardViewToFissuresView()
+        findNavController().navigate(directions)
     }
 
     private fun showSomeError(throwable: Throwable) {
