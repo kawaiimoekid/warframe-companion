@@ -1,16 +1,16 @@
 package com.kawaiistudios.warframecompanion
 
 import android.app.Activity
-import android.app.Application
 import android.content.BroadcastReceiver
+import androidx.multidex.MultiDexApplication
+import com.kawaiistudios.warframecompanion.di.AppInjector
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import dagger.android.HasBroadcastReceiverInjector
-import com.kawaiistudios.warframecompanion.di.AppInjector
 import javax.inject.Inject
 
-class MyApplication : Application(), HasActivityInjector, HasBroadcastReceiverInjector {
+class MyApplication : MultiDexApplication(), HasActivityInjector, HasBroadcastReceiverInjector {
 
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
