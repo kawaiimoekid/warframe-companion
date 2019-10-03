@@ -4,20 +4,46 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@+id/home">
+    app:startDestination="@+id/dashboard">
 
     <fragment
-        android:id="@+id/home"
-        android:name="com.kawaiistudios.warframecompanion.presentation.home.HomeView"
+        android:id="@+id/dashboard"
+        android:name="com.kawaiistudios.warframecompanion.presentation.dashboard.DashboardView"
         android:label="@string/app_name"
-        tools:layout="@layout/view_home"
-        />
+        tools:layout="@layout/view_dashboard">
+        <action
+            android:id="@+id/dashboardToNews"
+            app:destination="@+id/news"
+            />
+        <action
+            android:id="@+id/dashboardToFissures"
+            app:destination="@+id/fissures"
+            />
+        <action
+            android:id="@+id/dashboardToInvasions"
+            app:destination="@+id/invasions"
+            />
+    </fragment>
 
     <fragment
         android:id="@+id/news"
         android:name="com.kawaiistudios.warframecompanion.presentation.news.NewsView"
         android:label="@string/app_name"
         tools:layout="@layout/view_news"
+        />
+
+    <fragment
+        android:id="@+id/fissures"
+        android:name="com.kawaiistudios.warframecompanion.presentation.fissures.FissuresView"
+        android:label="@string/app_name"
+        tools:layout="@layout/view_fissures"
+        />
+
+    <fragment
+        android:id="@+id/invasions"
+        android:name="com.kawaiistudios.warframecompanion.presentation.invasions.InvasionsView"
+        android:label="@string/app_name"
+        tools:layout="@layout/view_invasions"
         />
 
 </navigation>

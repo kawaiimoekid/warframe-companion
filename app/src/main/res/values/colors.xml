@@ -12,4 +12,8 @@
     <color name="relic_meso">#A39375</color>
     <color name="relic_neo">#C0C0C0</color>
     <color name="relic_axi">#D4AF37</color>
+
+    <color name="corpus">#60C7F9</color>
+    <color name="grineer">#CA1021</color>
+    <color name="infested">#46CA00</color>
 </resources>

@@ -1,4 +1,4 @@
-package com.kawaiistudios.warframecompanion.util.injection
+package com.kawaiistudios.warframecompanion.di
 
 import com.kawaiistudios.warframecompanion.presentation.container.ContainerView
 import dagger.Module

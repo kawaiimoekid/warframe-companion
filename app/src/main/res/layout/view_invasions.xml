@@ -6,22 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    tools:context=".presentation.news.NewsView">
+    tools:context=".presentation.invasions.InvasionsView">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:title="@string/view_news_title"
+        app:title="@string/view_invasions_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvNews"
+        android:id="@+id/rvInvasions"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +47,7 @@
         android:id="@+id/txtFailure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/view_news_txt_failure"
+        android:text="@string/view_invasions_txt_failure"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

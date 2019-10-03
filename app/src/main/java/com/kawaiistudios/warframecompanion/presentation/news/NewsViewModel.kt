@@ -1,72 +1,65 @@
 package com.kawaiistudios.warframecompanion.presentation.news
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
-import com.kawaiistudios.warframecompanion.data.FetchCallback
 import com.kawaiistudios.warframecompanion.data.model.News
 import com.kawaiistudios.warframecompanion.data.repository.NewsRepository
+import com.kawaiistudios.warframecompanion.presentation.BaseViewModel
+import com.kawaiistudios.warframecompanion.util.extension.toPrettyTimeDifference
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import io.reactivex.subjects.BehaviorSubject
 import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
 import org.joda.time.Duration
 import javax.inject.Inject
 
 class NewsViewModel @Inject constructor(
-        private val repository: NewsRepository
-) : ViewModel(), FetchCallback {
+        private val repo: NewsRepository
+) : BaseViewModel() {
 
-    val news = Transformations.map(repository.news, ::mapNews)
-
-    private val _showLoading = MutableLiveData<Boolean>()
-    val showLoading: LiveData<Boolean> get() = _showLoading
-
-    private val _showFailure = MutableLiveData<Boolean>()
-    val showFailure: LiveData<Boolean> get() = _showFailure
-
+    val news = BehaviorSubject.create<List<NewsModel>>()
+    val showLoading = BehaviorSubject.create<Boolean>()
+    val showFailure = BehaviorSubject.create<Boolean>()
 
     init {
-        _showFailure.value = false
-        _showLoading.value = true
-        repository.fetchNews(this)
+        refresh()
     }
 
+    /**
+     * Requests new data to be loaded. Not to be called on ViewModel
+     * initialization as it will request the data by itself.
+     */
     fun refresh() {
-        _showFailure.value = false
-        _showLoading.value = true
-        repository.fetchNews(this)
+        showFailure.onNext(false)
+        showLoading.onNext(true)
+        disposable.add(
+                repo.getNews()
+                        .subscribeOn(Schedulers.io())
+                        .map(::mapNews)
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(::onSuccess, ::onFailure)
+        )
     }
 
-    private fun mapNews(resource: List<News>?): List<NewsModel> {
-        return resource?.map {
+    private fun mapNews(resource: List<News>): List<NewsModel> {
+        return resource.map {
             NewsModel(
                     it.id,
-                    "[${extractTimeDifference(it.date)}] ${it.translations.en ?: ""}",
+                    "[${it.date.toPrettyTimeDifference()}] ${it.translations.en ?: ""}",
                     it.forumLink,
                     it.imageLink
             )
-        } ?: emptyList()
-    }
-
-    private fun extractTimeDifference(dateTime: DateTime): String {
-        val difference = Duration(dateTime, DateTime.now(DateTimeZone.UTC))
-        return when {
-            difference.standardDays > 0 -> "${difference.standardDays}d"
-            difference.standardHours > 0 -> "${difference.standardHours}h"
-            difference.standardMinutes > 0 -> "${difference.standardMinutes}m"
-            difference.standardSeconds > 0 -> "${difference.standardSeconds}s"
-            else -> "?"
         }
     }
 
-    override fun onFailure() {
-        _showLoading.postValue(false)
-        _showFailure.postValue(true)
+    private fun onSuccess(data: List<NewsModel>) {
+        showLoading.onNext(false)
+        showFailure.onNext(false)
+        news.onNext(data)
     }
 
-    override fun onSuccess() {
-        _showLoading.postValue(false)
-        _showFailure.postValue(false)
+    private fun onFailure(throwable: Throwable) {
+        showLoading.onNext(false)
+        showFailure.onNext(true)
     }
 
 }

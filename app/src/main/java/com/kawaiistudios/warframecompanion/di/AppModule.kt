@@ -1,8 +1,9 @@
-package com.kawaiistudios.warframecompanion.util.injection
+package com.kawaiistudios.warframecompanion.di
 
 import android.app.Application
 import android.preference.PreferenceManager
 import com.google.gson.GsonBuilder
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.kawaiistudios.warframecompanion.data.WarframeStatusApi
 import com.kawaiistudios.warframecompanion.data.converter.DateTimeDeserializer
 import com.kawaiistudios.warframecompanion.data.converter.LiveDataCallAdapterFactory
@@ -24,6 +25,7 @@ class AppModule {
                     .registerTypeAdapter(DateTime::class.java, DateTimeDeserializer())
                     .create()))
             .addCallAdapterFactory(LiveDataCallAdapterFactory())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
             .create(WarframeStatusApi::class.java)
 

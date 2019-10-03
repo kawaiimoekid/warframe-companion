@@ -7,25 +7,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.afollestad.materialdialogs.MaterialDialog
 
 import com.kawaiistudios.warframecompanion.R
-import com.kawaiistudios.warframecompanion.util.injection.Injectable
+import com.kawaiistudios.warframecompanion.presentation.BaseView
+import com.kawaiistudios.warframecompanion.di.Injectable
 import kotlinx.android.synthetic.main.view_news.*
 import javax.inject.Inject
 
-class NewsView : Fragment(), Injectable, NewsClickedListener {
+class NewsView : BaseView(), Injectable {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     lateinit var viewModel: NewsViewModel
 
-    private val adapter = NewsAdapter(this)
+    private val adapter = NewsAdapter(::onNewsClicked)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View?
@@ -38,14 +36,16 @@ class NewsView : Fragment(), Injectable, NewsClickedListener {
 
         rvNews.adapter = adapter
 
-        viewModel.news.observe(viewLifecycleOwner, Observer { displayNews(it) })
-        viewModel.showFailure.observe(viewLifecycleOwner, Observer { showFailure(it) })
-        viewModel.showLoading.observe(viewLifecycleOwner, Observer { showLoading(it) })
+        disposable.addAll(
+                viewModel.news.subscribe(adapter::update),
+                viewModel.showLoading.subscribe(::showLoading),
+                viewModel.showFailure.subscribe(::showFailure)
+        )
 
         btnReload.setOnClickListener { viewModel.refresh() }
     }
 
-    override fun onClicked(news: NewsModel) {
+    private fun onNewsClicked(news: NewsModel) {
         context?.let { ctx ->
             MaterialDialog.Builder(ctx)
                     .content(R.string.view_news_dialog_view_post_content)

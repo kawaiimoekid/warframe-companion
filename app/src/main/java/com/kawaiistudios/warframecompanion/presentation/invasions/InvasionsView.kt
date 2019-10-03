@@ -1,48 +1,44 @@
-package com.kawaiistudios.warframecompanion.presentation.fissures
+package com.kawaiistudios.warframecompanion.presentation.invasions
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-
 import com.kawaiistudios.warframecompanion.R
 import com.kawaiistudios.warframecompanion.di.Injectable
-import kotlinx.android.synthetic.main.view_fissures.*
+import com.kawaiistudios.warframecompanion.presentation.BaseView
+import kotlinx.android.synthetic.main.view_invasions.*
 import javax.inject.Inject
 
-class FissuresView : Fragment(), Injectable {
+class InvasionsView : BaseView(), Injectable {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    lateinit var viewModel: FissuresViewModel
+    lateinit var viewModel: InvasionsViewModel
 
-    private val adapter = FissuresAdapter()
+    private val adapter = InvasionsAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View?
-            = inflater.inflate(R.layout.view_fissures, container, false)
+            = inflater.inflate(R.layout.view_invasions, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this, viewModelFactory)
-                .get(FissuresViewModel::class.java)
+                .get(InvasionsViewModel::class.java)
 
-        rvNews.adapter = adapter
+        rvInvasions.adapter = adapter
 
-        viewModel.fissures.observe(viewLifecycleOwner, Observer { displayFissures(it) })
-        viewModel.showFailure.observe(viewLifecycleOwner, Observer { showFailure(it) })
-        viewModel.showLoading.observe(viewLifecycleOwner, Observer { showLoading(it) })
+        disposable.addAll(
+                viewModel.invasions.subscribe(adapter::update),
+                viewModel.showLoading.subscribe(::showLoading),
+                viewModel.showFailure.subscribe(::showFailure)
+        )
 
         btnReload.setOnClickListener { viewModel.refresh() }
-    }
-
-    private fun displayFissures(news: List<FissuresModel>) {
-        adapter.update(news)
     }
 
     private fun showFailure(show: Boolean) {

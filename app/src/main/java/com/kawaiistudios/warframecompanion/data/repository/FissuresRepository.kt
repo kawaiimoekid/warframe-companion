@@ -37,4 +37,6 @@ class FissuresRepository @Inject constructor(
         })
     }
 
+    fun getFissuresSingle() = api.getFissuresSingle()
+
 }

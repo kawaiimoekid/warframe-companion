@@ -1,4 +1,4 @@
-package com.kawaiistudios.warframecompanion.util.injection
+package com.kawaiistudios.warframecompanion.di
 
 /**
  * Marks an activity / fragment injectable.

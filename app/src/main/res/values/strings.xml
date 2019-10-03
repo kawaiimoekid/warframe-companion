@@ -2,10 +2,31 @@
     <string name="app_name">Warframe Companion</string>
     <string name="view">View</string>
     <string name="close">Close</string>
+    <string name="show_all">Show all</string>
+    <string name="show_more">Show more</string>
+
+    <!-- Strings related to DashboardNewsWidgetView -->
+    <string name="view_dashboard_news_widget_txt_show_all">Show all news</string>
+
+    <!-- Strings related to DashboardFissuresWidgetView -->
+    <string name="view_dashboard_fissures_widget_txt_title">Void fissures</string>
+    <string name="view_dashboard_fissures_widget_txt_lith">Lith: %d</string>
+    <string name="view_dashboard_fissures_widget_txt_meso">Meso: %d</string>
+    <string name="view_dashboard_fissures_widget_txt_neo">Neo: %d</string>
+    <string name="view_dashboard_fissures_widget_txt_axi">Axi: %d</string>
+    <string name="view_dashboard_fissures_widget_txt_show_all">Show all fissures</string>
+
+    <!-- Strings related to DashboardInvasionsWidgetView -->
+    <string name="view_dashboard_invasions_widget_txt_title">Invasion rewards</string>
+    <string name="view_dashboard_invasions_widget_txt_show_all">Show all invasions</string>
+
+    <!-- Strings related to DashboardSortieWidgetView -->
+    <string name="view_dashboard_sortie_widget_txt_title">Sortie</string>
+    <string name="view_dashboard_sortie_widget_txt_details">Show details</string>
 
     <!-- Strings related to ContainerView -->
     <string name="view_container_title">Warframe Companion</string>
-    <string name="view_container_nav_item_home">Home</string>
+    <string name="view_container_nav_item_dashboard">Dashboard</string>
     <string name="view_container_nav_item_market">Market</string>
     <string name="view_container_nav_item_codex">Items</string>
     <string name="view_container_nav_item_relics">Relics</string>
@@ -16,9 +37,15 @@
     <string name="view_home_tab_sortie">Sortie</string>
 
     <!-- Strings related to NewsView -->
+    <string name="view_news_title">News</string>
     <string name="view_news_txt_failure">Failed to load news.</string>
     <string name="view_news_dialog_view_post_content">Do you want to view the forum post?</string>
     <string name="view_news_btn_reload">Reload</string>
+
+    <!-- Strings related to InvasionsView -->
+    <string name="view_invasions_title">Invasions</string>
+    <string name="view_invasions_txt_failure">Failed to load invasions.</string>
+    <string name="view_invasions_btn_reload">Reload</string>
 
     <!-- Strings related to FissuresView -->
     <string name="view_fissures_adapter_txt_time_expired">Expired!</string>
