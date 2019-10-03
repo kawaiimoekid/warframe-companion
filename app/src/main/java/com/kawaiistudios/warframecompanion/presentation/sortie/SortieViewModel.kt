@@ -20,7 +20,7 @@ class SortieViewModel @Inject constructor(
     companion object {
         private const val FACTION_GRINEER = "Grineer"
         private const val FACTION_CORPUS = "Corpus"
-        private const val FACTION_INFESTED = "Infested"
+        private const val FACTION_INFESTED = "Infestation"
     }
 
     val sortie = Transformations.map(repository.sortie, ::mapSortie)
