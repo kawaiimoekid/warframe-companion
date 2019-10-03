@@ -20,6 +20,10 @@
     <string name="view_dashboard_invasions_widget_txt_title">Invasion rewards</string>
     <string name="view_dashboard_invasions_widget_txt_show_all">Show all invasions</string>
 
+    <!-- Strings related to DashboardSortieWidgetView -->
+    <string name="view_dashboard_sortie_widget_txt_title">Sortie</string>
+    <string name="view_dashboard_sortie_widget_txt_details">Show details</string>
+
     <!-- Strings related to ContainerView -->
     <string name="view_container_title">Warframe Companion</string>
     <string name="view_container_nav_item_dashboard">Dashboard</string>
