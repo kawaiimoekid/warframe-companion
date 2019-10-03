@@ -25,4 +25,7 @@ interface WarframeStatusApi {
     @GET("pc/sortie")
     fun getSortie(): Call<Sortie>
 
+    @GET("pc/sortie")
+    fun getSortieSingle(): Single<Sortie>
+
 }

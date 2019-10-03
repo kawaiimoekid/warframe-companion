@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import com.kawaiistudios.warframecompanion.data.FetchCallback
 import com.kawaiistudios.warframecompanion.data.WarframeStatusApi
-import com.kawaiistudios.warframecompanion.data.model.Fissure
 import com.kawaiistudios.warframecompanion.data.model.Sortie
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,5 +36,7 @@ class SortiesRepository @Inject constructor(
             }
         })
     }
+
+    fun getSortieSingle() = api.getSortieSingle()
 
 }

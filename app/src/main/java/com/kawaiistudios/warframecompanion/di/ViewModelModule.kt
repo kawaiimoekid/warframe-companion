@@ -6,6 +6,7 @@ import com.kawaiistudios.warframecompanion.presentation.dashboard.DashboardViewM
 import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.fissures.DashboardFissuresWidgetViewModel
 import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.invasions.DashboardInvasionsWidgetViewModel
 import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.news.DashboardNewsWidgetViewModel
+import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.sortie.DashboardSortieWidgetViewModel
 import com.kawaiistudios.warframecompanion.presentation.fissures.FissuresViewModel
 import com.kawaiistudios.warframecompanion.presentation.invasions.InvasionsViewModel
 import com.kawaiistudios.warframecompanion.presentation.news.NewsViewModel
@@ -37,6 +38,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(DashboardInvasionsWidgetViewModel::class)
     abstract fun bindDashboardInvasionsWidget(vm: DashboardInvasionsWidgetViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DashboardSortieWidgetViewModel::class)
+    abstract fun bindDashboardSortieWidget(vm: DashboardSortieWidgetViewModel): ViewModel
 
     @Binds
     @IntoMap

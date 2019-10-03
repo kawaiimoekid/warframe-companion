@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.kawaiistudios.warframecompanion.R
+import com.kawaiistudios.warframecompanion.di.Injectable
 import com.kawaiistudios.warframecompanion.presentation.BaseView
 import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.fissures.DashboardFissuresWidgetView
-import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.news.DashboardNewsWidgetView
-import com.kawaiistudios.warframecompanion.di.Injectable
 import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.invasions.DashboardInvasionsWidgetView
+import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.news.DashboardNewsWidgetView
+import com.kawaiistudios.warframecompanion.presentation.dashboard.widget.sortie.DashboardSortieWidgetView
 import kotlinx.android.synthetic.main.view_dashboard.*
 import javax.inject.Inject
 
@@ -35,6 +36,7 @@ class DashboardView : BaseView(), Injectable {
                     .add(layoutWidgetContainer.id, DashboardNewsWidgetView(), "NewsWidget")
                     .add(layoutWidgetContainer.id, DashboardFissuresWidgetView(), "FissuresWidget")
                     .add(layoutWidgetContainer.id, DashboardInvasionsWidgetView(), "InvasionsWidget")
+                    .add(layoutWidgetContainer.id, DashboardSortieWidgetView(), "SortieWidget")
                     .commit()
         }
     }
