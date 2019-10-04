@@ -1,40 +1,24 @@
 package com.kawaiistudios.warframecompanion.presentation.sortie
 
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.afollestad.materialdialogs.MaterialDialog
-
 import com.kawaiistudios.warframecompanion.R
 import com.kawaiistudios.warframecompanion.di.Injectable
+import com.kawaiistudios.warframecompanion.presentation.BaseView
 import kotlinx.android.synthetic.main.view_sortie.*
-import org.joda.time.Duration
-import org.joda.time.format.PeriodFormatterBuilder
 import javax.inject.Inject
 
-class SortieView : Fragment(), Injectable {
+class SortieView : BaseView(), Injectable {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     lateinit var viewModel: SortieViewModel
-
-    private var timer: CountDownTimer? = null
-    private val periodFormatter = PeriodFormatterBuilder()
-            .minimumPrintedDigits(2)
-            .appendHours()
-            .appendSuffix("h ")
-            .appendMinutes()
-            .appendSuffix("m ")
-            .appendSeconds()
-            .appendSuffix("s")
-            .toFormatter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View?
@@ -42,24 +26,21 @@ class SortieView : Fragment(), Injectable {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProviders.of(this, viewModelFactory)
+        viewModel = ViewModelProvider(this, viewModelFactory)
                 .get(SortieViewModel::class.java)
+        disposable.addAll(
+                viewModel.sortie.subscribe(::bind),
+                viewModel.timeLeft.subscribe { txtTimeLeft.text = it },
+                viewModel.showSortie.subscribe { scroll.visibility = if (it) VISIBLE else GONE },
+                viewModel.showFailure.subscribe { layoutError.visibility = if (it) VISIBLE else INVISIBLE },
+                viewModel.showLoading.subscribe { pbLoading.visibility = if (it) VISIBLE else GONE }
+        )
 
-        viewModel.sortie.observe(viewLifecycleOwner, Observer { displaySortieInfo(it) })
-        viewModel.showSortie.observe(viewLifecycleOwner, Observer { showSortieViews(it) })
-        viewModel.showFailure.observe(viewLifecycleOwner, Observer { showFailure(it) })
-        viewModel.showLoading.observe(viewLifecycleOwner, Observer { showLoading(it) })
-
+        toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
         btnReload.setOnClickListener { viewModel.refresh() }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        timer?.cancel()
-        timer = null
-    }
-
-    private fun displaySortieInfo(sortie: SortieModel) {
+    private fun bind(sortie: SortieModel) {
         txtBoss.text = sortie.boss
         txtFaction.text = sortie.factionName
         imgFaction.setImageResource(sortie.factionIcon)
@@ -78,35 +59,6 @@ class SortieView : Fragment(), Injectable {
         txtMissionNode3.text = sortie.variants[2].node
         txtMissionModifier3.text = sortie.variants[2].modifier
         btnMissionInfo3.setOnClickListener { showModifierDetailsDialog(sortie.variants[2].modifierDescription) }
-
-        if (sortie.millisUntilExpiry > 0) {
-//            showCountdown()
-            startTimer(sortie.millisUntilExpiry)
-        } else {
-//            showTimeExpired()
-        }
-    }
-
-    private fun showSortieViews(show: Boolean) {
-        scroll.visibility = if (show) VISIBLE else GONE
-    }
-
-    private fun showFailure(show: Boolean) {
-        if (show) {
-            txtFailure.visibility = VISIBLE
-            btnReload.visibility = VISIBLE
-        } else {
-            txtFailure.visibility = INVISIBLE
-            btnReload.visibility = INVISIBLE
-        }
-    }
-
-    private fun showLoading(show: Boolean) {
-        if (show) {
-            pbLoading.visibility = VISIBLE
-        } else {
-            pbLoading.visibility = GONE
-        }
     }
 
     private fun showModifierDetailsDialog(details: String) {
@@ -117,30 +69,5 @@ class SortieView : Fragment(), Injectable {
                     .show()
         }
     }
-
-    private fun startTimer(millis: Long) {
-        timer?.cancel()
-        timer = object : CountDownTimer(millis, 1000) {
-            override fun onFinish() {
-//                showTimeExpired()
-            }
-
-            override fun onTick(millis: Long) {
-                txtTimeLeft.text = periodFormatter.print(Duration.millis(millis).toPeriod())
-            }
-        }
-
-        timer?.start()
-    }
-
-    /*private fun showCountdown() {
-        itemView.txtTimeLeft.visibility = VISIBLE
-        itemView.txtTimeExpired.visibility = INVISIBLE
-    }
-
-    private fun showTimeExpired() {
-        itemView.txtTimeLeft.visibility = INVISIBLE
-        itemView.txtTimeExpired.visibility = VISIBLE
-    }*/
 
 }

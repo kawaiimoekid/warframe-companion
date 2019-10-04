@@ -40,7 +40,7 @@ class DashboardSortieWidgetViewModel @Inject constructor(
 
     init {
         disposable.add(
-                sortieRepo.getSortieSingle()
+                sortieRepo.getSortie()
                         .subscribeOn(Schedulers.io())
                         .map(::mapSortie)
                         .observeOn(AndroidSchedulers.mainThread())
