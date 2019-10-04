@@ -8,12 +8,10 @@ import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.afollestad.materialdialogs.MaterialDialog
-
 import com.kawaiistudios.warframecompanion.R
-import com.kawaiistudios.warframecompanion.presentation.BaseView
 import com.kawaiistudios.warframecompanion.di.Injectable
+import com.kawaiistudios.warframecompanion.presentation.BaseView
 import kotlinx.android.synthetic.main.view_news.*
 import javax.inject.Inject
 
@@ -31,16 +29,15 @@ class NewsView : BaseView(), Injectable {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProviders.of(this, viewModelFactory)
+        viewModel = ViewModelProvider(this, viewModelFactory)
                 .get(NewsViewModel::class.java)
-
-        rvNews.adapter = adapter
-
         disposable.addAll(
                 viewModel.news.subscribe(adapter::update),
-                viewModel.showLoading.subscribe(::showLoading),
-                viewModel.showFailure.subscribe(::showFailure)
+                viewModel.showLoading.subscribe { pbLoading.visibility = if (it) VISIBLE else GONE },
+                viewModel.showFailure.subscribe { layoutError.visibility = if (it) VISIBLE else INVISIBLE }
         )
+
+        rvNews.adapter = adapter
 
         btnReload.setOnClickListener { viewModel.refresh() }
     }
@@ -56,28 +53,6 @@ class NewsView : BaseView(), Injectable {
                     }
                     .negativeText(R.string.close)
                     .show()
-        }
-    }
-
-    private fun displayNews(news: List<NewsModel>) {
-        adapter.update(news)
-    }
-
-    private fun showFailure(show: Boolean) {
-        if (show) {
-            txtFailure.visibility = VISIBLE
-            btnReload.visibility = VISIBLE
-        } else {
-            txtFailure.visibility = INVISIBLE
-            btnReload.visibility = INVISIBLE
-        }
-    }
-
-    private fun showLoading(show: Boolean) {
-        if (show) {
-            pbLoading.visibility = VISIBLE
-        } else {
-            pbLoading.visibility = GONE
         }
     }
 
