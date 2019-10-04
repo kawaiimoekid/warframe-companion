@@ -8,6 +8,7 @@ import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.afollestad.materialdialogs.MaterialDialog
 import com.kawaiistudios.warframecompanion.R
 import com.kawaiistudios.warframecompanion.di.Injectable
@@ -38,6 +39,7 @@ class NewsView : BaseView(), Injectable {
         )
 
         rvNews.adapter = adapter
+        toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
 
         btnReload.setOnClickListener { viewModel.refresh() }
     }
