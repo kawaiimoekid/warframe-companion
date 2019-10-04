@@ -7,9 +7,6 @@ import com.kawaiistudios.warframecompanion.util.extension.toPrettyTimeDifference
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.BehaviorSubject
-import org.joda.time.DateTime
-import org.joda.time.DateTimeZone
-import org.joda.time.Duration
 import javax.inject.Inject
 
 class NewsViewModel @Inject constructor(
@@ -34,6 +31,7 @@ class NewsViewModel @Inject constructor(
         disposable.add(
                 repo.getNews()
                         .subscribeOn(Schedulers.io())
+                        .map { list -> list.sortedByDescending { it.date } }
                         .map(::mapNews)
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(::onSuccess, ::onFailure)
