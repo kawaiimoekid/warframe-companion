@@ -5,17 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-
+import androidx.navigation.fragment.findNavController
 import com.kawaiistudios.warframecompanion.R
 import com.kawaiistudios.warframecompanion.di.Injectable
+import com.kawaiistudios.warframecompanion.presentation.BaseView
 import kotlinx.android.synthetic.main.view_fissures.*
 import javax.inject.Inject
 
-class FissuresView : Fragment(), Injectable {
+class FissuresView : BaseView(), Injectable {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -29,38 +27,18 @@ class FissuresView : Fragment(), Injectable {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProviders.of(this, viewModelFactory)
+        viewModel = ViewModelProvider(this, viewModelFactory)
                 .get(FissuresViewModel::class.java)
+        disposable.addAll(
+                viewModel.fissures.subscribe(adapter::update),
+                viewModel.showLoading.subscribe { pbLoading.visibility = if (it) VISIBLE else GONE },
+                viewModel.showFailure.subscribe { layoutError.visibility = if (it) VISIBLE else INVISIBLE }
+        )
 
         rvNews.adapter = adapter
 
-        viewModel.fissures.observe(viewLifecycleOwner, Observer { displayFissures(it) })
-        viewModel.showFailure.observe(viewLifecycleOwner, Observer { showFailure(it) })
-        viewModel.showLoading.observe(viewLifecycleOwner, Observer { showLoading(it) })
-
+        toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
         btnReload.setOnClickListener { viewModel.refresh() }
-    }
-
-    private fun displayFissures(news: List<FissuresModel>) {
-        adapter.update(news)
-    }
-
-    private fun showFailure(show: Boolean) {
-        if (show) {
-            txtFailure.visibility = VISIBLE
-            btnReload.visibility = VISIBLE
-        } else {
-            txtFailure.visibility = INVISIBLE
-            btnReload.visibility = INVISIBLE
-        }
-    }
-
-    private fun showLoading(show: Boolean) {
-        if (show) {
-            pbLoading.visibility = VISIBLE
-        } else {
-            pbLoading.visibility = GONE
-        }
     }
 
 }

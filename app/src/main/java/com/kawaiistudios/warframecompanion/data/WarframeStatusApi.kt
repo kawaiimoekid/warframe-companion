@@ -14,10 +14,7 @@ interface WarframeStatusApi {
     fun getNews(): Single<List<News>>
 
     @GET("pc/fissures")
-    fun getFissures(): Call<List<Fissure>>
-
-    @GET("pc/fissures")
-    fun getFissuresSingle(): Single<List<Fissure>>
+    fun getFissures(): Single<List<Fissure>>
 
     @GET("pc/invasions")
     fun getInvasions(): Single<List<Invasion>>

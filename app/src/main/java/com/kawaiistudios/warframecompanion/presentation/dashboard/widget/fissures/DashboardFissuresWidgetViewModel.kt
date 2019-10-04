@@ -1,17 +1,11 @@
 package com.kawaiistudios.warframecompanion.presentation.dashboard.widget.fissures
 
 import com.kawaiistudios.warframecompanion.data.model.Fissure
-import com.kawaiistudios.warframecompanion.data.model.News
 import com.kawaiistudios.warframecompanion.data.repository.FissuresRepository
-import com.kawaiistudios.warframecompanion.data.repository.NewsRepository
 import com.kawaiistudios.warframecompanion.presentation.BaseViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.BehaviorSubject
-import io.reactivex.subjects.PublishSubject
-import org.joda.time.DateTime
-import org.joda.time.DateTimeZone
-import org.joda.time.Duration
 import javax.inject.Inject
 
 class DashboardFissuresWidgetViewModel @Inject constructor(
@@ -22,7 +16,7 @@ class DashboardFissuresWidgetViewModel @Inject constructor(
 
     init {
         disposable.add(
-                fissureRepo.getFissuresSingle()
+                fissureRepo.getFissures()
                         .subscribeOn(Schedulers.io())
                         .map { fissures -> mapFissures(fissures) }
                         .observeOn(AndroidSchedulers.mainThread())

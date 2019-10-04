@@ -1,21 +1,20 @@
 package com.kawaiistudios.warframecompanion.presentation.fissures
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
 import com.kawaiistudios.warframecompanion.R
-import com.kawaiistudios.warframecompanion.data.FetchCallback
 import com.kawaiistudios.warframecompanion.data.model.Fissure
 import com.kawaiistudios.warframecompanion.data.repository.FissuresRepository
+import com.kawaiistudios.warframecompanion.presentation.BaseViewModel
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import io.reactivex.subjects.BehaviorSubject
 import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
 import org.joda.time.Duration
 import javax.inject.Inject
 
 class FissuresViewModel @Inject constructor(
-        private val repository: FissuresRepository
-) : ViewModel(), FetchCallback {
+        private val repo: FissuresRepository
+) : BaseViewModel() {
 
     companion object {
         private const val TIER_LITH = 1
@@ -24,29 +23,33 @@ class FissuresViewModel @Inject constructor(
         private const val TIER_AXI = 4
     }
 
-    val fissures = Transformations.map(repository.fissures, ::mapFissures)
-
-    private val _showLoading = MutableLiveData<Boolean>()
-    val showLoading: LiveData<Boolean> get() = _showLoading
-
-    private val _showFailure = MutableLiveData<Boolean>()
-    val showFailure: LiveData<Boolean> get() = _showFailure
-
+    val fissures = BehaviorSubject.create<List<FissuresModel>>()
+    val showLoading = BehaviorSubject.create<Boolean>()
+    val showFailure = BehaviorSubject.create<Boolean>()
 
     init {
-        _showFailure.value = false
-        _showLoading.value = true
-        repository.fetchFissures(this)
+        refresh()
     }
 
+    /**
+     * Requests new data to be loaded. Not to be called on ViewModel
+     * initialization as it will request the data by itself.
+     */
     fun refresh() {
-        _showFailure.value = false
-        _showLoading.value = true
-        repository.fetchFissures(this)
+        showFailure.onNext(false)
+        showLoading.onNext(true)
+        disposable.add(
+                repo.getFissures()
+                        .subscribeOn(Schedulers.io())
+                        .map { list -> list.filter { !it.expired } }
+                        .map(::mapFissures)
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(::onSuccess, ::onFailure)
+        )
     }
 
-    private fun mapFissures(resource: List<Fissure>?): List<FissuresModel> {
-        return resource?.map {
+    private fun mapFissures(resource: List<Fissure>): List<FissuresModel> {
+        return resource.map {
             FissuresModel(
                     it.id,
                     it.node,
@@ -55,7 +58,7 @@ class FissuresViewModel @Inject constructor(
                     expiryInMillis(it.expiry),
                     getResourceForTier(it.tierNum)
             )
-        } ?: emptyList()
+        }
     }
 
     private fun expiryInMillis(dateTime: DateTime): Long {
@@ -73,14 +76,15 @@ class FissuresViewModel @Inject constructor(
         }
     }
 
-    override fun onFailure() {
-        _showLoading.postValue(false)
-        _showFailure.postValue(true)
+    private fun onSuccess(data: List<FissuresModel>) {
+        showLoading.onNext(false)
+        showFailure.onNext(false)
+        fissures.onNext(data)
     }
 
-    override fun onSuccess() {
-        _showLoading.postValue(false)
-        _showFailure.postValue(false)
+    private fun onFailure(throwable: Throwable) {
+        showLoading.onNext(false)
+        showFailure.onNext(true)
     }
 
 }

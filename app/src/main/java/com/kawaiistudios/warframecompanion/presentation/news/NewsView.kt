@@ -39,8 +39,8 @@ class NewsView : BaseView(), Injectable {
         )
 
         rvNews.adapter = adapter
-        toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
 
+        toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
         btnReload.setOnClickListener { viewModel.refresh() }
     }
 

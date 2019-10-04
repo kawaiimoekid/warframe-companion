@@ -48,7 +48,10 @@
     <string name="view_invasions_btn_reload">Reload</string>
 
     <!-- Strings related to FissuresView -->
+    <string name="view_fissures_title">Fissures</string>
     <string name="view_fissures_adapter_txt_time_expired">Expired!</string>
+    <string name="view_fissures_txt_failure">Failed to load fissures.</string>
+    <string name="view_fissures_btn_reload">Reload</string>
 
     <!-- Strings related to SortieView -->
     <string name="view_sortie_txt_time_expired">Sortie expired!</string>
