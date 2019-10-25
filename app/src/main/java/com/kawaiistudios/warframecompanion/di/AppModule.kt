@@ -2,11 +2,12 @@ package com.kawaiistudios.warframecompanion.di
 
 import android.app.Application
 import android.preference.PreferenceManager
+import androidx.room.Room
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.kawaiistudios.warframecompanion.data.WarframeStatusApi
 import com.kawaiistudios.warframecompanion.data.converter.DateTimeDeserializer
-import com.kawaiistudios.warframecompanion.data.converter.LiveDataCallAdapterFactory
+import com.kawaiistudios.warframecompanion.data.db.Database
 import dagger.Module
 import dagger.Provides
 import org.joda.time.DateTime
@@ -28,7 +29,18 @@ class AppModule {
             .build()
             .create(WarframeStatusApi::class.java)
 
+
+
     @Provides
     fun provideSharedPrefs(app: Application) = PreferenceManager.getDefaultSharedPreferences(app)
+
+    @Provides
+    @Singleton
+    fun provideDb(app: Application) =
+            Room.databaseBuilder(app, Database::class.java, "wfcompanion.db")
+                    .fallbackToDestructiveMigration()
+                    .build()
+
+
 
 }
