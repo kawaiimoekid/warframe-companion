@@ -24,7 +24,6 @@ class AppModule {
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder()
                     .registerTypeAdapter(DateTime::class.java, DateTimeDeserializer())
                     .create()))
-            .addCallAdapterFactory(LiveDataCallAdapterFactory())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
             .create(WarframeStatusApi::class.java)
