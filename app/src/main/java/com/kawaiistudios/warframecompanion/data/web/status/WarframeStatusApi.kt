@@ -1,4 +1,4 @@
-package com.kawaiistudios.warframecompanion.data
+package com.kawaiistudios.warframecompanion.data.web.status
 
 import com.kawaiistudios.warframecompanion.data.model.Fissure
 import com.kawaiistudios.warframecompanion.data.model.News

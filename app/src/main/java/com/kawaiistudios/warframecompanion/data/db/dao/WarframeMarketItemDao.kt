@@ -8,7 +8,10 @@ import io.reactivex.Single
 @Dao
 interface WarframeMarketItemDao : BaseDao<WarframeMarketItem> {
 
-    @Query("select * from warframeMarketItems where itemName like :name")
-    fun selectByName(name: String): Single<List<WarframeMarketItem>>
+    @Query("select * from warframeMarketItems where id = :id")
+    fun selectById(id: String): Single<WarframeMarketItem>
+
+    @Query("select * from warframeMarketItems where itemName like :name order by itemName limit :limit")
+    fun selectByName(name: String, limit: Int): Single<List<WarframeMarketItem>>
 
 }

@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.kawaiistudios.warframecompanion.R
 import com.kawaiistudios.warframecompanion.di.Injectable
 import com.kawaiistudios.warframecompanion.presentation.BaseView
@@ -28,7 +27,7 @@ class DashboardView : BaseView(), Injectable {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProviders.of(this, viewModelFactory)
+        viewModel = ViewModelProvider(this, viewModelFactory)
                 .get(DashboardViewModel::class.java)
 
         if (childFragmentManager.fragments.isEmpty()) {

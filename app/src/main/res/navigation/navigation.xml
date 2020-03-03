@@ -23,6 +23,11 @@
         <action
             android:id="@+id/action_dashboardView_to_sortieView"
             app:destination="@id/sortieView" />
+        <action
+            android:id="@+id/action_dashboardView_to_codexView"
+            app:destination="@id/codexView"
+            app:popUpTo="@id/dashboardView"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/newsView"
@@ -44,4 +49,24 @@
         android:name="com.kawaiistudios.warframecompanion.presentation.sortie.SortieView"
         android:label="view_sortie"
         tools:layout="@layout/view_sortie" />
+    <fragment
+        android:id="@+id/codexView"
+        android:name="com.kawaiistudios.warframecompanion.presentation.codex.CodexView"
+        android:label="CodexView" />
+    <fragment
+        android:id="@+id/marketDashboardView"
+        android:name="com.kawaiistudios.warframecompanion.presentation.market.dashboard.MarketDashboardView"
+        android:label="MarketDashboardView" >
+        <action
+            android:id="@+id/action_marketDashboardView_to_marketItemView"
+            app:destination="@id/marketItemView" />
+    </fragment>
+    <fragment
+        android:id="@+id/marketItemView"
+        android:name="com.kawaiistudios.warframecompanion.presentation.market.item.MarketItemView"
+        android:label="MarketItemView" >
+        <argument
+            android:name="itemId"
+            app:argType="string" />
+    </fragment>
 </navigation>

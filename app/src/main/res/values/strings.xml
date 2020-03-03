@@ -4,6 +4,9 @@
     <string name="close">Close</string>
     <string name="show_all">Show all</string>
     <string name="show_more">Show more</string>
+    <string name="in_game">In game</string>
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
 
     <!-- Strings related to DashboardNewsWidgetView -->
     <string name="view_dashboard_news_widget_txt_show_all">Show all news</string>
@@ -28,7 +31,7 @@
     <string name="view_container_title">Warframe Companion</string>
     <string name="view_container_nav_item_dashboard">Dashboard</string>
     <string name="view_container_nav_item_market">Market</string>
-    <string name="view_container_nav_item_codex">Items</string>
+    <string name="view_container_nav_item_codex">Codex</string>
     <string name="view_container_nav_item_relics">Relics</string>
 
     <!-- Strings related to HomeView -->
@@ -59,5 +62,18 @@
     <string name="view_sortie_txt_missions_header">Missions</string>
     <string name="view_sortie_txt_failure">Failed to load sortie.</string>
     <string name="view_sortie_btn_reload">Reload</string>
+
+    <!-- Strings related to MarketDashboardView -->
+    <string name="view_market_dashboard_title">Warframe.market - PC</string>
+    <string name="view_market_dashboard_txt_search_hint">Search for item</string>
+
+    <!-- Strings related to MarketItemView -->
+    <string name="view_market_item_tab_details">Details</string>
+    <string name="view_market_item_tab_sales">Sales</string>
+    <string name="view_market_item_tab_buys">Buys</string>
+    <string name="view_market_item_menu_favorite">Remove from favorites</string>
+    <string name="view_market_item_menu_not_favorite">Add to favorites</string>
+    <string name="view_market_item_toast_added_to_favorites">Added item to favorites</string>
+    <string name="view_market_item_toast_removed_from_favorites">Removed item from favorites</string>
 
 </resources>

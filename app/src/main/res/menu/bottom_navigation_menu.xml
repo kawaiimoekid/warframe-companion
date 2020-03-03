@@ -7,12 +7,12 @@
         android:title="@string/view_container_nav_item_dashboard" />
 
     <item
-        android:id="@+id/market"
+        android:id="@+id/marketDashboardView"
         android:icon="@drawable/ic_shopping_basket_black_24dp"
         android:title="@string/view_container_nav_item_market" />
 
     <item
-        android:id="@+id/codex"
+        android:id="@+id/codexView"
         android:icon="@drawable/ic_android_black_24dp"
         android:title="@string/view_container_nav_item_codex" />
 

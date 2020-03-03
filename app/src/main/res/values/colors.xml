@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
     <color name="textPrimary">#CCCCCC</color>
     <color name="colorAccent">#FFA500</color>
     <color name="backgroundBronzeGradient">#443300</color>
@@ -16,4 +17,42 @@
     <color name="corpus">#60C7F9</color>
     <color name="grineer">#CA1021</color>
     <color name="infested">#46CA00</color>
+
+    <color name="userInGame">#46CA00</color>
+    <color name="userOnline">#60C7F9</color>
+    <color name="userOffline">#CA1021</color>
+
+    <!-- https://www.nordtheme.com/docs/colors-and-palettes -->
+    <!-- Background and area coloring -->
+    <color name="nord0">#2E3440</color>
+    <!-- Elevated elements (status bar, panels, buttons) -->
+    <color name="nord1">#3B4252</color>
+    <!-- Text selection and highlighting -->
+    <color name="nord2">#434C5E</color>
+    <!-- Indent and wrap guide marker -->
+    <color name="nord3">#4C566A</color>
+    <!-- Text highlighting -->
+    <color name="nord4">#D8DEE9</color>
+    <!-- Text highlighting -->
+    <color name="nord5">#E5E9F0</color>
+    <!-- Plain text color -->
+    <color name="nord6">#ECEFF4</color>
+    <!-- Secondary UI elements that should stand out -->
+    <color name="nord7">#8FBCBB</color>
+    <!-- Primary UI elements -->
+    <color name="nord8">#88C0D0</color>
+    <!-- Secondary UI elements -->
+    <color name="nord9">#81A1C1</color>
+    <!-- Tertiary UI elements -->
+    <color name="nord10">#5E81AC</color>
+    <!-- Error highlighting -->
+    <color name="nord11">#BF616A</color>
+    <!-- Advanced or dangerous functionality -->
+    <color name="nord12">#D08770</color>
+    <!-- Warning highlighting -->
+    <color name="nord13">#EBCB8B</color>
+    <!-- Success highlighting -->
+    <color name="nord14">#A3BE8C</color>
+    <!-- Uncommon functionality -->
+    <color name="nord15">#B48EAD</color>
 </resources>

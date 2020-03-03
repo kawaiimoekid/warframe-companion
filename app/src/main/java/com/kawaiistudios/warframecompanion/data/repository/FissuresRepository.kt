@@ -1,6 +1,6 @@
 package com.kawaiistudios.warframecompanion.data.repository
 
-import com.kawaiistudios.warframecompanion.data.WarframeStatusApi
+import com.kawaiistudios.warframecompanion.data.web.status.WarframeStatusApi
 import javax.inject.Inject
 
 class FissuresRepository @Inject constructor(

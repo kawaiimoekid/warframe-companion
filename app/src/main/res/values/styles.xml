@@ -3,16 +3,18 @@
     <style name="BaseTheme" parent="Theme.MaterialComponents.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowBackground">?windowBackground</item>
+
+        <item name="tabStyle">@style/BaseTheme.TabLayout</item>
+    </style>
+
+    <style name="BaseTheme.TabLayout" parent="Widget.Design.TabLayout">
+        <item name="android:background">?colorPrimary</item>
     </style>
     
     <style name="DarkTheme" parent="BaseTheme">
-        <item name="android:windowBackground">@color/backgroundDark</item>
-        <item name="colorPrimary">@color/colorAccent</item>
-        <item name="colorPrimaryDark">@color/colorAccent</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="separatorColor">@color/textPrimary</item>
-        <item name="imageButtonColor">@color/textPrimary</item>
-        <item name="iconColor">@color/textPrimary</item>
+        <item name="windowBackground">@color/nord0</item>
+        <item name="colorPrimary">@color/nord1</item>
     </style>
 
     <style name="ImageView">
@@ -32,15 +34,6 @@
         <item name="android:layout_marginBottom">16dp</item>
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginEnd">8dp</item>
-    </style>
-
-    <style name="imageButton">
-        <item name="android:tint">?imageButtonColor</item>
-        <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
-    </style>
-
-    <style name="bottomNavigation">
-        <item name="android:background">?android:windowBackground</item>
     </style>
 
 </resources>

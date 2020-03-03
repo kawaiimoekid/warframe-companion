@@ -1,6 +1,6 @@
 package com.kawaiistudios.warframecompanion.data.repository
 
-import com.kawaiistudios.warframecompanion.data.WarframeStatusApi
+import com.kawaiistudios.warframecompanion.data.web.status.WarframeStatusApi
 import com.kawaiistudios.warframecompanion.data.model.News
 import io.reactivex.Single
 import javax.inject.Inject
