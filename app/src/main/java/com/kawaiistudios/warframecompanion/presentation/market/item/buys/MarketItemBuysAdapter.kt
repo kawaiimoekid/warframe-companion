@@ -32,6 +32,14 @@ class MarketItemBuysAdapter : GreatAdapter<MarketItemBuysModel>() {
                 UserStatus.Offline -> R.color.userOffline
             }
             itemView.imgStatus.setColorFilter(ContextCompat.getColor(itemView.context, color))
+
+            val status = when (item.userStatus) {
+                UserStatus.InGame -> R.string.in_game
+                UserStatus.Online -> R.string.online
+                UserStatus.Offline -> R.string.offline
+            }
+            itemView.txtStatus.setText(status)
+            itemView.txtStatus.setTextColor(ContextCompat.getColor(itemView.context, color))
         }
 
     }
