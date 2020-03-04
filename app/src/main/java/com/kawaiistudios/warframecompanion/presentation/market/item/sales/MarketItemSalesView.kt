@@ -3,6 +3,8 @@ package com.kawaiistudios.warframecompanion.presentation.market.item.sales
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.kawaiistudios.warframecompanion.R
@@ -27,7 +29,10 @@ class MarketItemSalesView : BaseView(), Injectable {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this, viewModelFactory)
                 .get(MarketItemSalesViewModel::class.java)
-        disposable.add(viewModel.orders.subscribe(adapter::update))
+        disposable.addAll(
+                viewModel.orders.subscribe(adapter::update),
+                viewModel.showNoOrders.subscribe { txtNoOrders.visibility = if (it) VISIBLE else INVISIBLE }
+        )
 
         rvSales.adapter = adapter
 

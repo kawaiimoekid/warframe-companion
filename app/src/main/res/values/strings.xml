@@ -76,4 +76,10 @@
     <string name="view_market_item_toast_added_to_favorites">Added item to favorites</string>
     <string name="view_market_item_toast_removed_from_favorites">Removed item from favorites</string>
 
+    <!-- Strings related to MarketItemSalesView -->
+    <string name="view_market_item_sales_txt_no_sales">No orders found</string>
+
+    <!-- Strings related to MarketItemBuysView -->
+    <string name="view_market_item_sales_txt_no_buys">No orders found</string>
+
 </resources>

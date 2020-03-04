@@ -13,6 +13,7 @@ class MarketItemBuysViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     val orders = BehaviorSubject.createDefault(emptyList<MarketItemBuysModel>())
+    val showNoOrders = BehaviorSubject.createDefault(false)
 
     fun init(itemId: String) {
         disposable.add(
@@ -22,9 +23,12 @@ class MarketItemBuysViewModel @Inject constructor(
                         .map { list -> list.sortedWith(compareBy({ it.userStatus }, { it.platinum })) }
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(orders::onNext) { error ->
+                        .subscribe({
+                            orders.onNext(it)
+                            showNoOrders.onNext(it.isEmpty())
+                        }, { error ->
                             Log.e("Error", "ERROR >:(", error)
-                        }
+                        })
         )
     }
 

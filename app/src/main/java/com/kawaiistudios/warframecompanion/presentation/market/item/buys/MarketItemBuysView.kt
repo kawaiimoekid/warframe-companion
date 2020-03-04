@@ -9,6 +9,7 @@ import com.kawaiistudios.warframecompanion.R
 import com.kawaiistudios.warframecompanion.di.Injectable
 import com.kawaiistudios.warframecompanion.presentation.BaseView
 import kotlinx.android.synthetic.main.view_market_item_buys.*
+import kotlinx.android.synthetic.main.view_market_item_buys.txtNoOrders
 import javax.inject.Inject
 
 class MarketItemBuysView : BaseView(), Injectable {
@@ -27,7 +28,10 @@ class MarketItemBuysView : BaseView(), Injectable {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this, viewModelFactory)
                 .get(MarketItemBuysViewModel::class.java)
-        disposable.add(viewModel.orders.subscribe(adapter::update))
+        disposable.addAll(
+                viewModel.orders.subscribe(adapter::update),
+                viewModel.showNoOrders.subscribe { txtNoOrders.visibility = if (it) View.VISIBLE else View.INVISIBLE }
+        )
 
         rvBuys.adapter = adapter
 
