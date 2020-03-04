@@ -23,7 +23,7 @@ class MarketDashboardQueryAdapter(
 
         override fun bind(item: MarketDashboardQueryModel) {
             itemView.txtItemName.text = item.itemName
-            itemView.txtItemName.setOnClickListener { onClicked?.invoke(item) }
+            itemView.container.setOnClickListener { onClicked?.invoke(item) }
         }
 
     }
