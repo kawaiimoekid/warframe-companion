@@ -37,7 +37,7 @@ class MarketDashboardView : BaseView(), Injectable {
                 viewModel.queryResults.subscribe(adapter::update),
                 viewModel.showClear.subscribe { btnClear.visibility = if (it) VISIBLE else GONE },
                 txtSearch.textChanges()
-                        .debounce(300, TimeUnit.MILLISECONDS)
+                        .debounce(150, TimeUnit.MILLISECONDS)
                         .map { it.toString() }
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe { viewModel.query(it) }
