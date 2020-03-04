@@ -22,7 +22,7 @@
 
     <ImageView
         android:id="@+id/imgFaction"
-        style="@style/ImageView"
+        style="@style/BaseTheme.ImageView"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginTop="16dp"
@@ -39,7 +39,6 @@
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:textColor="@color/textPrimary"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/imgFaction"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +52,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
-        android:textColor="@color/textPrimary"
         app:layout_constraintStart_toEndOf="@id/imgFaction"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtFaction"
@@ -70,7 +68,6 @@
         android:layout_marginEnd="16dp"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:textColor="@color/textPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imgFaction"
@@ -84,7 +81,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:textSize="14sp"
-        android:textColor="@color/textPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtMissionType1"
@@ -100,7 +96,6 @@
         android:layout_marginEnd="16dp"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:textColor="@color/textPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtMissionModifier1"
@@ -114,7 +109,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:textSize="14sp"
-        android:textColor="@color/textPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtMissionType2"
@@ -130,7 +124,6 @@
         android:layout_marginEnd="16dp"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:textColor="@color/textPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtMissionModifier2"
@@ -144,7 +137,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:textSize="14sp"
-        android:textColor="@color/textPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtMissionType3"
@@ -174,7 +166,7 @@
 
         <ImageView
             android:id="@+id/imgShowDetails"
-            style="@style/ImageView"
+            style="@style/BaseTheme.ImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
@@ -182,6 +174,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="ContentDescription"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

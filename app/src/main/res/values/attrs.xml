@@ -3,9 +3,15 @@
 
     <attr name="separatorColor" format="reference" />
     <attr name="imageButtonColor" format="reference" />
-    <attr name="iconColor" format="reference" />
 
     <attr name="windowBackground" format="reference" />
     <attr name="toolbarBackground" format="reference" />
+    <attr name="textColor" format="reference" />
+    <attr name="textSelectedColor" format="reference" />
+    <attr name="hintColor" format="reference" />
+    <attr name="textHighlightColor" format="reference" />
+    <attr name="caretColor" format="reference" />
+    <attr name="primaryUiElement" format="reference" />
+    <attr name="rippleColor" format="reference" />/
 
 </resources>

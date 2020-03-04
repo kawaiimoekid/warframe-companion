@@ -19,9 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:menu="@menu/menu_market_dashboard"
-            app:title="@string/view_market_dashboard_title">
-
-        </androidx.appcompat.widget.Toolbar>
+            app:title="@string/view_market_dashboard_title"
+            />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -31,6 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:hint="@string/view_market_dashboard_txt_search_hint"
+        android:importantForAutofill="no"
+        android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnClear"
         app:layout_constraintTop_toBottomOf="@id/layoutToolbar"
@@ -38,7 +39,7 @@
 
     <ImageView
         android:id="@+id/btnClear"
-        style="@style/ImageView"
+        style="@style/BaseTheme.ImageView"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:padding="4dp"

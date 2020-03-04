@@ -5,20 +5,76 @@
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowBackground">?windowBackground</item>
 
+        <item name="toolbarStyle">@style/BaseTheme.Toolbar</item>
         <item name="tabStyle">@style/BaseTheme.TabLayout</item>
+        <item name="materialCardViewStyle">@style/BaseTheme.CardView</item>
+        <item name="bottomNavigationStyle">@style/BaseTheme.BottomNavigation</item>
+        <item name="android:textViewStyle">@style/BaseTheme.TextView</item>
+        <item name="editTextStyle">@style/BaseTheme.EditText</item>
+
+        <!-- Material dialog library -->
+        <item name="md_background_color">?colorPrimary</item>
+        <item name="md_title_color">?textColor</item>
+        <item name="md_content_color">?textColor</item>
+        <item name="md_item_color">?textColor</item>
+        <item name="md_positive_color">?primaryUiElement</item>
+        <item name="md_neutral_color">?primaryUiElement</item>
+        <item name="md_negative_color">?primaryUiElement</item>
+        <item name="md_widget_color">?primaryUiElement</item>
+        <item name="md_btn_ripple_color">?rippleColor</item>
+    </style>
+
+    <style name="BaseTheme.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">?colorPrimary</item>
+        <item name="titleTextColor">?textColor</item>
     </style>
 
     <style name="BaseTheme.TabLayout" parent="Widget.Design.TabLayout">
         <item name="android:background">?colorPrimary</item>
-    </style>
-    
-    <style name="DarkTheme" parent="BaseTheme">
-        <item name="windowBackground">@color/nord0</item>
-        <item name="colorPrimary">@color/nord1</item>
+        <item name="tabTextColor">?textColor</item>
+        <item name="tabSelectedTextColor">?primaryUiElement</item>
+        <item name="tabIndicatorColor">?primaryUiElement</item>
     </style>
 
-    <style name="ImageView">
-        <item name="android:tint">?iconColor</item>
+    <style name="BaseTheme.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">?colorPrimary</item>
+    </style>
+
+    <style name="BaseTheme.BottomNavigation" parent="Widget.Design.BottomNavigationView">
+        <item name="android:background">?colorPrimary</item>
+        <item name="itemIconTint">@drawable/bottom_navigation_color</item>
+        <item name="itemTextColor">@drawable/bottom_navigation_color</item>
+    </style>
+
+    <style name="BaseTheme.TextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">?textColor</item>
+    </style>
+
+    <style name="BaseTheme.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textColorHint">?hintColor</item>
+        <item name="android:textColor">?textColor</item>
+        <item name="android:textColorHighlight">?textSelectedColor</item>
+        <item name="android:colorAccent">?caretColor</item>
+    </style>
+    
+    <style name="BaseTheme.NordDarkAmbianceTheme" parent="BaseTheme">
+        <item name="windowBackground">@color/nord0</item>
+        <item name="colorPrimary">@color/nord1</item>
+        <item name="rippleColor">@color/nord3</item>
+        <item name="tabRippleColor">@color/nord3</item>
+        <item name="textColor">@color/nord6</item>
+        <item name="textSelectedColor">@color/nord2</item>
+        <item name="hintColor">@color/nord4</item>
+        <item name="textHighlightColor">@color/nord4</item>
+        <item name="caretColor">@color/nord4</item>
+        <item name="primaryUiElement">@color/nord8</item>
+
+        <!-- Temp -->
+        <item name="separatorColor">@color/nord0</item>
+    </style>
+
+    <style name="BaseTheme.ImageView">
+        <item name="android:tint">?textColor</item>
     </style>
 
     <style name="SectionHeader">

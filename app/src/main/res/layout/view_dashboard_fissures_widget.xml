@@ -22,7 +22,6 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvLith"
-        style="@style/Widget.MaterialComponents.CardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -36,16 +35,17 @@
 
             <ImageView
                 android:id="@+id/imgLith"
+                style="@style/BaseTheme.ImageView"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_margin="8dp"
                 app:srcCompat="@drawable/ic_lith"
-                android:tint="@color/textPrimary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/txtLith"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                />
 
             <TextView
                 android:id="@+id/txtLith"
@@ -65,7 +65,6 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvMeso"
-        style="@style/Widget.MaterialComponents.CardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -79,16 +78,17 @@
 
             <ImageView
                 android:id="@+id/imgMeso"
+                style="@style/BaseTheme.ImageView"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_margin="8dp"
                 app:srcCompat="@drawable/ic_meso"
-                android:tint="@color/textPrimary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/txtMeso"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                />
 
             <TextView
                 android:id="@+id/txtMeso"
@@ -108,7 +108,6 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvNeo"
-        style="@style/Widget.MaterialComponents.CardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -122,16 +121,17 @@
 
             <ImageView
                 android:id="@+id/imgNeo"
+                style="@style/BaseTheme.ImageView"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_margin="8dp"
                 app:srcCompat="@drawable/ic_neo"
-                android:tint="@color/textPrimary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/txtNeo"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                />
 
             <TextView
                 android:id="@+id/txtNeo"
@@ -151,7 +151,6 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvAxi"
-        style="@style/Widget.MaterialComponents.CardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -165,16 +164,17 @@
 
             <ImageView
                 android:id="@+id/imgAxi"
+                style="@style/BaseTheme.ImageView"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_margin="8dp"
                 app:srcCompat="@drawable/ic_axi"
-                android:tint="@color/textPrimary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/txtAxi"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                />
 
             <TextView
                 android:id="@+id/txtAxi"
@@ -216,7 +216,7 @@
 
         <ImageView
             android:id="@+id/imgShowAllFissures"
-            style="@style/ImageView"
+            style="@style/BaseTheme.ImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
@@ -224,7 +224,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

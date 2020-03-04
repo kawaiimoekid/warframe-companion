@@ -39,7 +39,7 @@ class MarketItemSalesAdapter : GreatAdapter<MarketItemSalesModel>() {
                 UserStatus.Offline -> R.string.offline
             }
             itemView.txtStatus.setText(status)
-            itemView.txtStatus.setTextColor(color)
+            itemView.txtStatus.setTextColor(ContextCompat.getColor(itemView.context, color))
         }
 
     }

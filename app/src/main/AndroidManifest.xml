@@ -12,9 +12,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/DarkTheme"
+        android:theme="@style/BaseTheme.NordDarkAmbianceTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".presentation.container.ContainerView">
+        <activity android:name=".presentation.container.ContainerView" android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

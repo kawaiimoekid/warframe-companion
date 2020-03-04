@@ -54,11 +54,11 @@ class InvasionsViewModel @Inject constructor(
                     id = it.id,
                     node = it.node,
                     attackerIcon = icons[it.attackingFaction] ?: R.drawable.ic_error_black_24dp,
-                    attackerIconColor = colors[it.attackingFaction] ?: R.color.textPrimary,
+                    attackerIconColor = colors[it.attackingFaction] ?: R.color.white,
                     attackerName = it.attackingFaction,
                     attackerReward = it.attackerReward.countedItems.getOrNull(0)?.type ?: "",
                     defenderIcon = icons[it.defendingFaction] ?: R.drawable.ic_error_black_24dp,
-                    defenderIconColor = colors[it.defendingFaction] ?: R.color.textPrimary,
+                    defenderIconColor = colors[it.defendingFaction] ?: R.color.white,
                     defenderName = it.defendingFaction,
                     defenderReward = it.defenderReward.countedItems.getOrNull(0)?.type ?: ""
             )

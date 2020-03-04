@@ -2,12 +2,6 @@
 <resources>
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFF</color>
-    <color name="textPrimary">#CCCCCC</color>
-    <color name="colorAccent">#FFA500</color>
-    <color name="backgroundBronzeGradient">#443300</color>
-    <color name="backgroundLight">#555555</color>
-    <color name="background">#444444</color>
-    <color name="backgroundDark">#333333</color>
 
     <color name="relic_lith">#CD7F32</color>
     <color name="relic_meso">#A39375</color>
@@ -55,4 +49,5 @@
     <color name="nord14">#A3BE8C</color>
     <!-- Uncommon functionality -->
     <color name="nord15">#B48EAD</color>
+
 </resources>

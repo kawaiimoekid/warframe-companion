@@ -40,20 +40,21 @@
 
             <ImageView
                 android:id="@+id/imgFaction"
+                style="@style/BaseTheme.ImageView"
                 android:layout_width="62dp"
                 android:layout_height="62dp"
                 android:layout_margin="16dp"
-                android:tint="@color/textPrimary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@drawable/ic_grineer"
+                tools:ignore="ContentDescription"
                 />
 
             <TextView
                 android:id="@+id/txtFaction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@id/imgFaction"
                 app:layout_constraintEnd_toEndOf="@id/imgFaction"
                 app:layout_constraintTop_toBottomOf="@id/imgFaction"
@@ -112,7 +113,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
-                android:textColor="@color/textPrimary"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -126,7 +126,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:textColor="@color/textPrimary"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btnMissionInfo1"
@@ -139,7 +138,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:textColor="@color/textPrimary"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btnMissionInfo1"
@@ -149,7 +147,7 @@
 
             <ImageView
                 android:id="@+id/btnMissionInfo1"
-                style="@style/imageButton"
+                style="@style/BaseTheme.ImageView"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_margin="16dp"
@@ -157,6 +155,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/txtMissionType1"
                 app:layout_constraintBottom_toBottomOf="@id/txtMissionModifier1"
+                tools:ignore="ContentDescription"
                 />
 
             <View
@@ -173,7 +172,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
-                android:textColor="@color/textPrimary"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -187,7 +185,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:textColor="@color/textPrimary"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btnMissionInfo2"
@@ -200,7 +197,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:textColor="@color/textPrimary"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btnMissionInfo2"
@@ -210,7 +206,7 @@
 
             <ImageView
                 android:id="@+id/btnMissionInfo2"
-                style="@style/imageButton"
+                style="@style/BaseTheme.ImageView"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_margin="16dp"
@@ -218,6 +214,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/txtMissionType2"
                 app:layout_constraintBottom_toBottomOf="@id/txtMissionModifier2"
+                tools:ignore="ContentDescription"
                 />
 
             <View
@@ -234,7 +231,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
-                android:textColor="@color/textPrimary"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -248,7 +244,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:textColor="@color/textPrimary"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btnMissionInfo3"
@@ -262,7 +257,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="16dp"
-                android:textColor="@color/textPrimary"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btnMissionInfo3"
@@ -274,7 +268,7 @@
 
             <ImageView
                 android:id="@+id/btnMissionInfo3"
-                style="@style/imageButton"
+                style="@style/BaseTheme.ImageView"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_margin="16dp"
@@ -282,6 +276,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/txtMissionType3"
                 app:layout_constraintBottom_toBottomOf="@id/txtMissionModifier3"
+                tools:ignore="ContentDescription"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

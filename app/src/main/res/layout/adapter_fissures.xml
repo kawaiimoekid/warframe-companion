@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<com.google.android.material.card.MaterialCardView
     android:id="@+id/cvContainer"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,7 +8,6 @@
     android:layout_height="wrap_content"
     android:clickable="true"
     android:focusable="true"
-    app:cardBackgroundColor="@color/backgroundLight"
     app:cardCornerRadius="0dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true">
@@ -20,13 +19,14 @@
 
         <ImageView
             android:id="@+id/imgTier"
+            style="@style/BaseTheme.ImageView"
             android:layout_width="62dp"
             android:layout_height="62dp"
-            android:tint="@color/textPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:srcCompat="@drawable/ic_axi"
+            tools:ignore="ContentDescription"
             />
 
         <TextView
@@ -34,7 +34,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:textColor="@color/textPrimary"
             android:textStyle="bold"
             android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +48,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:textColor="@color/textPrimary"
             android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +61,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:textColor="@color/textPrimary"
             android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +74,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:textColor="@color/textPrimary"
             android:gravity="center"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +86,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:textColor="@color/colorAccent"
             android:text="@string/view_fissures_adapter_txt_time_expired"
             android:gravity="center"
             android:visibility="invisible"
@@ -101,4 +96,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>
