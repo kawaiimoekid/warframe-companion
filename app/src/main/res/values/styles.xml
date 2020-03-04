@@ -56,6 +56,10 @@
         <item name="android:textColorHighlight">?textSelectedColor</item>
         <item name="android:colorAccent">?caretColor</item>
     </style>
+
+    <style name="BaseTheme.ImageView">
+        <item name="android:tint">?textColor</item>
+    </style>
     
     <style name="BaseTheme.NordDarkAmbianceTheme" parent="BaseTheme">
         <item name="windowBackground">@color/nord0</item>
@@ -73,8 +77,20 @@
         <item name="separatorColor">@color/nord0</item>
     </style>
 
-    <style name="BaseTheme.ImageView">
-        <item name="android:tint">?textColor</item>
+    <style name="BaseTheme.NordBrightAmbianceTheme" parent="BaseTheme">
+        <item name="windowBackground">@color/nord6</item>
+        <item name="colorPrimary">@color/nord4</item>
+        <item name="rippleColor">@color/nord5</item>
+        <item name="tabRippleColor">@color/nord5</item>
+        <item name="textColor">@color/nord0</item>
+        <item name="textSelectedColor">@color/nord5</item>
+        <item name="hintColor">@color/nord4</item>
+        <item name="textHighlightColor">@color/nord4</item>
+        <item name="caretColor">@color/nord4</item>
+        <item name="primaryUiElement">@color/nord8</item>
+
+        <!-- Temp -->
+        <item name="separatorColor">@color/nord6</item>
     </style>
 
     <style name="SectionHeader">
