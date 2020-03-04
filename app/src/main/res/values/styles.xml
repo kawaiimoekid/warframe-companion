@@ -4,6 +4,7 @@
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowBackground">?windowBackground</item>
+        <item name="colorControlHighlight">?rippleColor</item>
 
         <item name="toolbarStyle">@style/BaseTheme.Toolbar</item>
         <item name="tabStyle">@style/BaseTheme.TabLayout</item>
@@ -65,7 +66,6 @@
         <item name="windowBackground">@color/nord0</item>
         <item name="colorPrimary">@color/nord1</item>
         <item name="rippleColor">@color/nord3</item>
-        <item name="tabRippleColor">@color/nord3</item>
         <item name="textColor">@color/nord6</item>
         <item name="textSelectedColor">@color/nord2</item>
         <item name="hintColor">@color/nord4</item>
@@ -81,7 +81,6 @@
         <item name="windowBackground">@color/nord6</item>
         <item name="colorPrimary">@color/nord4</item>
         <item name="rippleColor">@color/nord5</item>
-        <item name="tabRippleColor">@color/nord5</item>
         <item name="textColor">@color/nord0</item>
         <item name="textSelectedColor">@color/nord5</item>
         <item name="hintColor">@color/nord4</item>
