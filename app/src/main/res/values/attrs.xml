@@ -12,6 +12,9 @@
     <attr name="textHighlightColor" format="reference" />
     <attr name="caretColor" format="reference" />
     <attr name="primaryUiElement" format="reference" />
-    <attr name="rippleColor" format="reference" />/
+    <attr name="rippleColor" format="reference" />
+
+    <attr name="errorColor" format="reference" />
+    <attr name="successColor" format="reference" />
 
 </resources>

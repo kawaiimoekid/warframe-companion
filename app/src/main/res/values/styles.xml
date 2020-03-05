@@ -72,6 +72,8 @@
         <item name="textHighlightColor">@color/nord4</item>
         <item name="caretColor">@color/nord4</item>
         <item name="primaryUiElement">@color/nord8</item>
+        <item name="successColor">@color/nord14</item>
+        <item name="errorColor">@color/nord12</item>
 
         <!-- Temp -->
         <item name="separatorColor">@color/nord0</item>
@@ -87,6 +89,8 @@
         <item name="textHighlightColor">@color/nord4</item>
         <item name="caretColor">@color/nord4</item>
         <item name="primaryUiElement">@color/nord8</item>
+        <item name="successColor">@color/nord14</item>
+        <item name="errorColor">@color/nord12</item>
 
         <!-- Temp -->
         <item name="separatorColor">@color/nord6</item>

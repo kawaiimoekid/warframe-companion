@@ -14,6 +14,7 @@ class MarketItemBuysViewModel @Inject constructor(
 
     val orders = BehaviorSubject.createDefault(emptyList<MarketItemBuysModel>())
     val showNoOrders = BehaviorSubject.createDefault(false)
+    val showError = BehaviorSubject.createDefault(false)
 
     fun init(itemId: String) {
         disposable.add(
@@ -26,8 +27,10 @@ class MarketItemBuysViewModel @Inject constructor(
                         .subscribe({
                             orders.onNext(it)
                             showNoOrders.onNext(it.isEmpty())
+                            showError.onNext(false)
                         }, { error ->
                             Log.e("Error", "ERROR >:(", error)
+                            showError.onNext(true)
                         })
         )
     }

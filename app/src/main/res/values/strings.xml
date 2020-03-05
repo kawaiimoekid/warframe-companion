@@ -81,5 +81,6 @@
 
     <!-- Strings related to MarketItemBuysView -->
     <string name="view_market_item_sales_txt_no_buys">No orders found</string>
+    <string name="view_market_item_sales_txt_error">Failed to load orders</string>
 
 </resources>

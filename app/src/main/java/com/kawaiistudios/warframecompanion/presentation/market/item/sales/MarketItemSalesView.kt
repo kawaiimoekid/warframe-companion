@@ -31,7 +31,8 @@ class MarketItemSalesView : BaseView(), Injectable {
                 .get(MarketItemSalesViewModel::class.java)
         disposable.addAll(
                 viewModel.orders.subscribe(adapter::update),
-                viewModel.showNoOrders.subscribe { txtNoOrders.visibility = if (it) VISIBLE else INVISIBLE }
+                viewModel.showNoOrders.subscribe { txtNoOrders.visibility = if (it) VISIBLE else INVISIBLE },
+                viewModel.showError.subscribe { layoutError.visibility = if (it) VISIBLE else INVISIBLE }
         )
 
         rvSales.adapter = adapter
