@@ -15,7 +15,8 @@ data class WarframeMarketItem(
         fun toEntity() = WarframeMarketItem(
                 id,
                 urlName,
-                itemName
+                itemName,
+                false
         )
 
 }

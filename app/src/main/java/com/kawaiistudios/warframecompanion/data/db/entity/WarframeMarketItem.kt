@@ -8,5 +8,6 @@ data class WarframeMarketItem(
         @PrimaryKey
         val id: String,
         val urlName: String,
-        val itemName: String
+        val itemName: String,
+        val isObserved: Boolean
 )

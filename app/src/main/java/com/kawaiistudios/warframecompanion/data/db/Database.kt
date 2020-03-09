@@ -7,7 +7,7 @@ import com.kawaiistudios.warframecompanion.data.db.entity.WarframeMarketItem
 
 @Database(entities = [
     WarframeMarketItem::class
-], version = 1)
+], version = 2)
 abstract class Database : RoomDatabase() {
 
     abstract fun warframeMarketItemDao(): WarframeMarketItemDao

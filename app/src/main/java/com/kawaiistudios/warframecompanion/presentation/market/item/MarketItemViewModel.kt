@@ -8,26 +8,34 @@ import io.reactivex.subjects.BehaviorSubject
 import javax.inject.Inject
 
 class MarketItemViewModel @Inject constructor(
-        val repository: MarketItemsRepository
+        val repo: MarketItemsRepository
 ) : BaseViewModel() {
+
+    private lateinit var itemId: String
 
     val title = BehaviorSubject.create<String>()
     val isFavorite = BehaviorSubject.create<Boolean>()
 
     fun init(itemId: String) {
+        this.itemId = itemId
         disposable.add(
-                repository.getItemById(itemId)
+                repo.getItemById(itemId)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({
                             title.onNext(it.itemName)
-                            isFavorite.onNext(false)
+                            isFavorite.onNext(it.isObserved)
                         }, {})
         )
     }
 
     fun setFavorite(newState: Boolean) {
-        isFavorite.onNext(newState)
+        val operation = if (newState) repo.addItemToObserved(itemId) else repo.removeItemFromObserved(itemId)
+        disposable.add(
+                operation.subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ isFavorite.onNext(newState) }, {})
+        )
     }
 
 }
